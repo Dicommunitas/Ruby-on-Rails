@@ -1,0 +1,41 @@
+<%= render 'vts/menu' %>
+<%= render 'layouts/final_menu' %>
+<%= render 'layouts/notificacoes' %>
+
+<p>
+	<b>Numero curto:</b>
+	<%= @vt.numero_curto %>
+</p>
+
+<p>
+	<b>Identificacao completa:</b>
+	<%= @vt.identificacao_completa %>
+</p>
+
+<p>
+	<b>Carregado?:</b>
+	<% if @vt.vt_carregado%>
+	sim
+	<% else %>
+	não
+	<% end %>
+</p>
+
+<%= link_to 'Editar', edit_vt_path(@vt) %> |
+<%= link_to 'Deletar', @vt, confirm: 'Você tem certeza?', method: :delete %>
+
+</br>
+</br>
+<% @vistorias = @vt.vistorias %>
+<%= render 'vistorias/part_index'%>
+</br>
+</br>
+<h1>Nova vistoria</h1>
+<% @vistoria = Vistoria.new(:vt_id => @vt.id) %>
+<%= render 'vistorias/form'%>
+</br>
+</br>
+<% @operacao_com_vagaos = @vt.operacao_com_vagaos %>
+<%= render 'operacao_com_vagaos/part_index'%>
+</br>
+</br>

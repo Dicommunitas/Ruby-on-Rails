@@ -1,0 +1,9 @@
+<%= render 'static/menu'%>
+<%= render 'layouts/final_menu' %>
+<div class="dialog">
+	<h1> A funcionalidade que você tentou acessar pertence a outro perfil de usuário. </h1>
+	<p>
+		Olá <%= @usuario.nome_guerra %>, desculpe mas parece que a funcionalidade que você tentou acessar pertence
+		a outro perfil de usuário. Se o grupo de usuários ao qual você pertence (<%= @usuario.privilegio.tipo %>) necessita
+		desta função, converse com o administrador do sistema.</ p>
+</div>

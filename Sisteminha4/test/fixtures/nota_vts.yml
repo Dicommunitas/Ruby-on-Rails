@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/Fixtures.html
+
+one:
+  numero_de_controle: 1
+  data: 2012-01-01
+  responsavel: 
+
+two:
+  numero_de_controle: 1
+  data: 2012-01-01
+  responsavel: 

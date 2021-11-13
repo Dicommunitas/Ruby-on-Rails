@@ -1,0 +1,40 @@
+<%= render 'operacao_com_vagaos/menu' %>
+<%= render 'layouts/final_menu' %> 
+<%= render 'layouts/notificacoes' %> 
+
+<p>
+  <b>Peso:</b>
+  <%= @operacao_com_vagao.peso %>
+</p>
+
+<p>
+  <b>Vagão:</b>
+  <%= @operacao_com_vagao.vt.numero_curto %>
+</p>
+
+<p>
+  <b>Nota de vagão:</b>
+  <%= link_to @operacao_com_vagao.nota_vt.numero_v2, @operacao_com_vagao.nota_vt %>
+</p>
+
+<p>
+  <b>Composição de vagões:</b>
+  <% if @operacao_com_vagao.composicao_de_vagao != nil %>
+  	<%= link_to @operacao_com_vagao.composicao_de_vagao.id, @operacao_com_vagao.composicao_de_vagao %>
+  <% else %>
+  	-
+  <% end %>  
+  <%= form_for @operacao_com_vagao, :url => '/operacao_com_vagao/limpar_composicao' do |f| %>  
+  <%= f.hidden_field :id, :value =>  @operacao_com_vagao.id %>
+  <%= f.submit 'Limpar composicao'%>
+  <% end %> 
+</p>
+
+<p>
+  <b>Produto de vagão:</b>
+  <%= @operacao_com_vagao.produto_vt.produtoECertificado %>
+</p>
+
+
+<%= link_to 'Editar', edit_operacao_com_vagao_path(@operacao_com_vagao) %> |
+<%= link_to 'Deletar', @operacao_com_vagao, confirm: 'Você tem certeza?', method: :delete %>

@@ -1,0 +1,25 @@
+<%= render 'grupo_usuarios/menu' %>
+<%= render 'layouts/final_menu' %>
+<h1>Grupo de usuários</h1>
+<h3> Atenção, esta é uma tabela utilizada para a administração das permissões ao sistema. Cuidado ao manipula-lá! </h3>
+
+<br>
+<table cellpadding="0" cellspacing="0" border="0" class="display dataTable" >
+	<thead>
+		<tr>
+			<th>Número</th>
+			<th>Tipo</th>
+			<th>Descrição</th>
+		</tr>
+	</thead>
+	<tbody>
+		<% @grupo_usuarios.each do |grupo_usuario| %>
+		<tr>
+			<td><%= link_to grupo_usuario.id, grupo_usuario %></td>
+			<td><%= grupo_usuario.tipo %></td>
+			<td><%= grupo_usuario.descricao %></td>
+		</tr>
+		<% end %>
+	</tbody>
+</table>
+<br>

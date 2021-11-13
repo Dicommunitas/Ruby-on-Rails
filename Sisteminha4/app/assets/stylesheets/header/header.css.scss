@@ -1,0 +1,42 @@
+div#header {
+  border: solid #599; /* borda */
+  border-width: 0px 0px 3px 3px; /* borda */
+
+
+  background: url('header/bgHeader3.png'); /* imagem de fundo */
+
+  /*background-color: rgba(240, 232, 219, 0.7); /* cor de fundo */
+
+
+  height: 100px;
+  width: 750px;
+  border-radius: 0px 0px 0px 150px; 
+
+  position: absolute; /**/
+  top: 0px;
+  right: 0px; 
+}
+
+
+
+
+div#header nome { 
+  font-size: 30px; /* tamanho da fonte */
+  color: #333; /* altera a cor do título do cabeçalho */
+  padding: 10px 0 0 60px; /* desloca o título */
+  position: absolute;/**/
+  left: 100px; 
+  top: 20px;
+  background: url('header/logo.png') no-repeat; /* imagem de logo */
+}
+
+div#header subtitle { 
+  font-size: 15px; /* tamanho da fonte */
+  color: #333; /* altera a cor do título do cabeçalho */
+  position: absolute;
+  left: 65px; 
+  top: 45px;
+}
+
+
+

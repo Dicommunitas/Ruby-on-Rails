@@ -1,0 +1,2 @@
+module FinalidadesHelper
+end

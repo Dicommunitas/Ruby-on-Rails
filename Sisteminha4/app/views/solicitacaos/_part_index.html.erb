@@ -1,0 +1,26 @@
+<h1>Solicitações</h1>
+
+<br>
+<table cellpadding="0" cellspacing="0" border="0" class="display dataTable" >
+	<thead>
+		<tr>
+			<th>Número</th>
+			<th>Data e hora</th>
+			<th>Nome responsável ALL</th>
+			<th>Composição de vagões</th>
+			<th>Descrição</th>
+		</tr>
+	</thead>
+	<tbody>
+		<% @solicitacaos.each do |solicitacao| %>
+		<tr>
+			<td><%= link_to solicitacao.id, solicitacao %></td>
+			<td><%= formatarDataHora(solicitacao.data_hora) %></td>
+			<td><%= solicitacao.responsavel_atender_solicitacao %></td>
+			<td><%= solicitacao.composicao_de_vagao.idEntradaPlataformaInicioDescarga %></td>
+			<td><%= solicitacao.descricao %></td>
+		</tr>
+		<% end %>
+	</tbody>
+</table>
+<br>

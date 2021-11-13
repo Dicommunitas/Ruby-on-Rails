@@ -1,0 +1,30 @@
+<%= form_for(@produto) do |f| %>
+  <% if @produto.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@produto.errors.count, "erro proíbe") %> este produto de ser salvo:</h2>
+
+      <ul>
+      <% @produto.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+  <div class="field">
+    <%= f.label :codigo, "Código" %><br />
+    <%= f.text_field :codigo %>
+  </div>
+  <div class="field">
+    <%= f.label :nome_curto %><br />
+    <%= f.text_field :nome_curto %>
+  </div>
+  <div class="field">
+    <%= f.label :nome_completo %><br />
+    <%= f.text_field :nome_completo %>
+  </div>  
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

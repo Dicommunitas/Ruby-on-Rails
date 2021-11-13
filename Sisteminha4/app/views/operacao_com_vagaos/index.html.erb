@@ -1,0 +1,16 @@
+<%= render 'operacao_com_vagaos/menu'%>
+<%= render 'layouts/final_menu' %> 
+
+<h1>Operações com vagões</h1>
+
+
+<%=  form_tag('/buscar_operacoes_com_vagoes') do %>
+Buscar operações com vagões salvas de 
+<%= text_field_tag :data_inicial %>
+até
+<%= text_field_tag :data_final %>
+<input class='actions' value= 'Buscar' type='submit' />
+<% end %>
+
+
+<%= render 'operacao_com_vagaos/part_index'%>

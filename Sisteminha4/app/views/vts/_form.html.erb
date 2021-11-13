@@ -1,0 +1,25 @@
+<%= form_for(@vt) do |f| %>
+  <% if @vt.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@vt.errors.count, "erro proíbe") %> este vt de ser salvo:</h2>
+
+      <ul>
+      <% @vt.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :numero_curto, "número curto" %><br />
+    <%= f.text_field :numero_curto %>
+  </div>
+  <div class="field">
+    <%= f.label :identificacao_completa, "identificação completa" %><br />
+    <%= f.text_field :identificacao_completa %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,93 @@
+<%= form_for(@operacao_com_vagao) do |f| %>
+<% if @operacao_com_vagao.errors.any? %>
+<div id="error_explanation">
+	<h2><%= pluralize(@operacao_com_vagao.errors.count, "erro proíbe") %> esta operção com vt de ser salva:</h2>
+	<ul>
+		<% @operacao_com_vagao.errors.full_messages.each do |msg| %>
+		<li>
+			<%= msg %>
+		</li>
+		<% end %>
+	</ul>
+</div>
+<% end %>
+
+
+
+
+<div class="field">
+	<%= f.label :peso %>
+	<br />
+	<%= f.number_field :peso %>
+</div>
+
+
+
+
+
+<div class="field">
+	<%= f.label :vt %>
+	<br />
+	<% if @operacao_com_vagao.vt == nil %>
+	<%= f.collection_select(:vt_id, Vt.find(:all, :order => "numero_curto"), :id, :numero_curto, {:include_blank => true}) %>
+	<% else %>
+	<%= @operacao_com_vagao.vt.numero_curto %>
+	<%= f.hidden_field :vt_id, :value => @operacao_com_vagao.vt.id %>
+	<% end %>
+</div>
+
+
+
+
+
+
+<div class="field">
+	<%= f.label :nota_vt %>
+	<br />
+	<% if @operacao_com_vagao.nota_vt == nil %>
+	<%= f.collection_select(:nota_vt_id, NotaVt.all, :id, :numero_v2, {:include_blank => true}) %>
+	<% else %>
+	<%= @operacao_com_vagao.nota_vt.numero_v2 %>
+	<%= f.hidden_field :nota_vt_id, :value => @operacao_com_vagao.nota_vt.id %>
+	<% end %>
+</div>
+
+
+<div class="field">
+	<%= f.label :composicao_de_vagao, "Composição de vagões" %>
+	<br />
+  	<% if @operacao_com_vagao.composicao_de_vagao != nil %>
+  		<%= link_to @operacao_com_vagao.composicao_de_vagao.id, @operacao_com_vagao.composicao_de_vagao %>
+  	<% else %>
+  		-
+  	<% end %>  
+</div>
+
+
+<div class="field">
+	<%= f.label :produto_vt %>
+	<br />
+	<% if @operacao_com_vagao.produto_vt == nil %>
+	<%= f.collection_select(:produto_vt_id, ProdutoVt.all, :id, :produtoECertificado, {:include_blank => true}) %>
+	<% else %>
+	<%= @operacao_com_vagao.produto_vt.produtoECertificado %>
+	<%= f.hidden_field :produto_vt_id, :value => @operacao_com_vagao.produto_vt.id %>
+	<% end %>
+</div>
+
+
+<div class="field">
+	<%= f.label :operacao_finalizada, "Operação finalizada?" %>
+	<br />
+	<% if @operacao_com_vagao.operacao_finalizada %>
+	sim
+	<%else%>
+	não
+	<%end%>
+</div>
+
+
+<div class="actions">
+	<%= f.submit %>
+</div>
+<% end %> 

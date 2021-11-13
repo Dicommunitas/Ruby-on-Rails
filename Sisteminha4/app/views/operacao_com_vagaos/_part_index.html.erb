@@ -1,0 +1,47 @@
+
+<br>
+<table cellpadding="0" cellspacing="0" border="0" class="display dataTable" >
+	<thead>
+		<tr>
+			<th>Link</th>
+			<th>Vt</th>
+			<th>Peso</th>
+			<th>Nota de vagões</th>
+			<th>Composição</th>
+			<th>Produto</th>
+			<th>Operação finalizada?</th>
+			<th>Última vistoria</th>
+		</tr>
+	</thead>
+	<tbody>
+		<% @operacao_com_vagaos.each do |operacao_com_vagao| %>
+		<tr>
+			<td><%= link_to :ver, operacao_com_vagao %></td>
+			<td><%= link_to operacao_com_vagao.vt.numero_curto, operacao_com_vagao.vt %></td>
+			<td><%= operacao_com_vagao.peso %></td>
+			<td><%= link_to operacao_com_vagao.nota_vt.numero_v2, operacao_com_vagao.nota_vt %></td>
+			
+			<td><% if operacao_com_vagao.composicao_de_vagao != nil%>
+			<%= link_to operacao_com_vagao.composicao_de_vagao.id , operacao_com_vagao.composicao_de_vagao %>
+			<% else %>
+			-
+			<% end %></td>
+			
+			<td><%= operacao_com_vagao.produto_vt.produtoECertificado %></td>
+			<td><% if operacao_com_vagao.operacao_finalizada%>
+			sim
+			<% else %>
+			não
+			<% end %></td>
+			<% if operacao_com_vagao.vt.ultimaVistoria != nil %>
+			<td> <% operacao_com_vagao.vt.ultimaVistoria.problemas.each do |problema| %>
+			<%= problema.descricao %> </br>
+			<% end %> </td>
+			<% else %>
+			<td> Sem Vistorias</td>
+			<% end %>
+		</tr>
+		<% end %>
+	</tbody>
+</table>
+<br>

@@ -1,0 +1,25 @@
+<%= form_for(@grupo_usuario) do |f| %>
+  <% if @grupo_usuario.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@grupo_usuario.errors.count, "erro proíbe") %> este grupo de usuários de ser salvo:</h2>
+
+      <ul>
+      <% @grupo_usuario.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :tipo %><br />
+    <%= f.text_field :tipo %>
+  </div>
+  <div class="field">
+    <%= f.label :descricao %><br />
+    <%= f.text_field :descricao %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

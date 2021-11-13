@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/Fixtures.html
+
+one:
+  data_hora: 2012-01-03 06:12:40
+  responsavel_ater_solicitacao: MyString
+  operacao_vagao: 
+
+two:
+  data_hora: 2012-01-03 06:12:40
+  responsavel_ater_solicitacao: MyString
+  operacao_vagao: 

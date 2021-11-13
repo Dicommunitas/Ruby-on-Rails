@@ -1,0 +1,13 @@
+<%= render 'problemas/menu' %>
+<%= render 'layouts/final_menu' %>
+<%= render 'layouts/notificacoes' %>
+<p>
+	<b>Descrição:</b>
+	<%= @problema.descricao %>
+</p>
+<%= link_to 'Editar', edit_problema_path(@problema) %> |
+<%= link_to 'Deletar', @problema, confirm: 'Você tem certeza?', method: :delete %>
+</br>
+</br>
+<% @vts = Vt.new.vtsPorProblema(@problema) %>
+<%= render 'vts/part_index' %> 

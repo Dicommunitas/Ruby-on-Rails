@@ -1,0 +1,12 @@
+<%= render 'tipo_amostras/menu' %>
+<%= render 'layouts/final_menu' %> 
+<%= render 'layouts/notificacoes' %>
+
+<p>
+  <b>Descricao:</b>
+  <%= @tipo_amostra.descricao %>
+</p>
+
+
+<%= link_to 'Editar', edit_tipo_amostra_path(@tipo_amostra) %> |
+<%= link_to 'Deletar', @tipo_amostra, confirm: 'Você tem certeza?', method: :delete %>

@@ -1,0 +1,21 @@
+<%= render 'vistorias/menu' %>
+<%= render 'layouts/final_menu' %> 
+<%= render 'layouts/notificacoes' %> 
+
+<p>
+  <b>Data:</b>
+  <%= formatarData(@vistoria.data) %>
+</p>
+
+<p>
+  <b>Vt:</b>
+  <%= link_to @vistoria.vt.numero_curto, @vistoria.vt %>
+</p>
+
+<%= link_to 'Editar', edit_vistoria_path(@vistoria) %> |
+<%= link_to 'Deletar', @vistoria, confirm: 'Você tem certeza?', method: :delete %>
+
+</br>
+</br>
+<% @problemas = @vistoria.problemas %>
+<%= render 'problemas/part_index' %> 

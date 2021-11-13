@@ -1,0 +1,34 @@
+<%= form_for @conjunto_operacoes_de_vagoes, :url => '/conjunto_operacoes_de_vagoes/confirmar_produto' do |f| %>
+
+
+  <% if @conjunto_operacoes_de_vagoes.errors.any? %>
+    <div id="error_explanation">
+    	<erro title="<%= pluralize(@conjunto_operacoes_de_vagoes.errors.count, "erro proíbe") %> esta nota de vt de ser salva">
+      <h2><%= pluralize(@conjunto_operacoes_de_vagoes.errors.count, "erro proíbe") %> esta nota de vt de ser salva:</h2>
+
+      <ul>
+      <% @conjunto_operacoes_de_vagoes.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<table>
+	<tr>
+		<td><b><%= f.label :vagoes, 'Vagões' %></b></td>
+		<td><b><%= f.label :pesos %></b></td>
+		<td><b><%= f.label :produto %></b></td>
+	</tr>
+	<tr>
+		<td><%= f.text_area :vagoes, :size => "10x20" %></td>
+		<td><%= f.text_area :pesos, :size => "10x20" %></td>
+		<td><%= f.collection_select(:produto, ProdutoVt.find(:all, :order => "id"), :id, :produtoECertificado, {:include_blank => true}) %></td>
+		<%= f.hidden_field :nota_vt, :value => @conjunto_operacoes_de_vagoes.nota_vt.id %>
+	</tr>
+</table>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

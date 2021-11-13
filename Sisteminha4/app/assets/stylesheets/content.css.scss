@@ -1,0 +1,114 @@
+div#content aviso {font-size: 12px; /**/}
+
+
+
+div#content{ /* corpo do texto */
+  padding: 15px 15px 15px 15px; /* posição do texto*/
+  text-align: left; /* alinhamento do texto */
+  width: 1100px; /* largura do texto */
+  height: auto; /* altura do texto */
+  margin: 230px 0px 0px 0px;
+
+  border: solid #599; /* borda */
+
+  border-radius: 0px 30px 0px 30px; 
+
+  background-color: rgba(240, 232, 219, 0.7);
+
+  position: absolute; /**/
+  left: 100px; /**/
+  top: -100px; /**/
+}
+
+
+
+div#content img { /* imagens dentro do texto */
+  border: 10px solid #000; /* sem efeito */
+  float: right; /* sem efeito */
+  margin: 18px 0 0 20px; /* sem efeito */
+}
+
+
+
+div#content h2 { /* tags h2 dentro do texto */
+  border: solid #999; /* sem efeito */
+  border-width: 0 0 5px 0; /* sem efeito */
+  font-size: 28px; margin: 0; /* sem efeito */
+  padding: 0 0 10px 0; /* sem efeito */
+}
+
+
+
+div#content h1 { /* tags h1 dentro do texto */
+  border: solid #599;/*#999; /* cor */
+  border-width: 0 0 5px 0; /* onde */
+  font-size: 20px; /* tamanho da fonte */
+  margin: 0; /* margem */
+  padding: 2px 0 5px 5px; /* margem */
+}
+
+
+div#content td { /* tags td dentro do texto */
+  border: solid #999; /* cor da borda */
+  border-width: 1px 1px 1px 1px; /* borda */
+  font-size: 14px; /* tamanho da fonte */
+  margin: 10px; /* sem efeito */
+  /*padding: 4px 6px 10px 0; /* margem */
+}
+
+
+
+div#content th { /* tags th dentro do texto */
+  /*border: solid #999; /* cor da borda */
+  border-width: 0 0 1px 1px; /* borda */
+  font-size: 14px; /* tamanho da fonte */
+  margin: 0; /* sem efeito */
+  padding: 10px 10px 2px 10px; /* margem */
+}
+
+
+
+div#content p { /* tags p dentro do texto */
+  /*border: solid #999; /* cor da borda */
+  border-width: 0 0 1px 1px; /* borda */
+  font-size: 14px; /* tamanho da fonte */
+  margin: 5px 5px 5px 0px; /* margem */
+  padding: 5px 0 5px 0; /* margem */
+}
+
+
+div#content b { /* tags p dentro do texto */
+  border: solid #999; /* cor da borda */
+  border-width: 0 0 1px 1px; /* borda */
+  font-size: 16px; /* tamanho da fonte */
+  margin: 5px 5px 5px 0px; /* margem */
+  /*padding: 4px 6px 10px 0; /* margem */
+}
+
+div#content table tr td b { /* tags p dentro do texto */
+  border: solid #999; /* cor da borda */
+  border-width: 0 0 0 0; /* borda */
+  font-size: 14px; /* tamanho da fonte */
+  /*margin: 5px 5px 5px 0px; /* margem */
+  /*padding: 4px 6px 10px 0; /* margem */
+}
+
+
+
+div#content a {
+  padding: 0px 7px 0px 7px; /**/
+  border-radius: 2px 2px 2px 2px; 
+  text-decoration: none ;
+  border: 1px solid #aaa;
+  background-color: #ddd;
+  color: #333 ;
+} /* Cor dos links */
+
+
+div#content a:hover { /* Cor dos links quando mouse em cima */
+  background-color: #ccc;
+  text-decoration: none !important;
+}
+
+
+

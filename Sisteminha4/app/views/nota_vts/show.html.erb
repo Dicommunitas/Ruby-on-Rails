@@ -1,0 +1,40 @@
+<%= render 'nota_vts/menu' %>
+<%= render 'layouts/final_menu' %> 
+<%= render 'layouts/notificacoes' %>  
+  
+<p>
+	<b>Número:</b>
+	<%= @nota_vt.id %>
+</p>
+<p>
+	<b>Número de controle:</b>
+	<%= @nota_vt.numero_v2 %>
+</p>
+<p>
+	<b>Data:</b>
+	<%= formatarData(@nota_vt.data) %>
+</p>
+<p>
+	<b>Responsável:</b>
+	<%= @nota_vt.responsavel.nome %>
+</p>
+<%= link_to 'Editar', edit_nota_vt_path(@nota_vt) %> 
+<%= link_to 'Deletar', @nota_vt, confirm: 'Você tem certeza?', method: :delete %>
+<br/>
+<br/>
+<br/>
+
+<h1>Operações com vagões</h1>
+
+
+<% @operacao_com_vagaos = @nota_vt.operacao_com_vagaos.sort_by{|operacao_com_vagao| [operacao_com_vagao.id]} %>
+<%= render 'operacao_com_vagaos/part_index'%>
+<p>
+	<b>Peso total:</b>
+	<%= @nota_vt.pesoTotal %>
+</p>
+<br/>
+<br/>
+<h1>Criar operações com vagões</h1>
+<% @conjunto_operacoes_de_vagoes = @nota_vt.conjunto_operacoes_de_vagoes %>
+<%= render 'conjunto_operacoes_de_vagoes/form' %>

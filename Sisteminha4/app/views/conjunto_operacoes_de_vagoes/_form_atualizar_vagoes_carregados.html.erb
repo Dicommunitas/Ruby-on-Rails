@@ -1,0 +1,28 @@
+<%= form_for @conjunto_operacoes_de_vagoes, :url => '/conjunto_operacoes_de_vagoes/confirmar_atualizacao_operacoes' do |f| %>
+
+
+  <% if @conjunto_operacoes_de_vagoes.errors.any? %>
+    <div id="error_explanation">
+    	<erro title="<%= pluralize(@conjunto_operacoes_de_vagoes.errors.count, "erro proíbe") %> esta composição de vagões de ser salva">
+      <h2><%= pluralize(@conjunto_operacoes_de_vagoes.errors.count, "erro proíbe") %> esta composição de vagões de ser salva:</h2>
+
+      <ul>
+      <% @conjunto_operacoes_de_vagoes.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<table>
+	<tr>
+		<td><b><%= f.label :vagoes, 'Vagões' %></b></td>
+	</tr>
+	<tr>
+		<td><%= f.text_area :vagoes, :size => "10x20" %></td>
+		<td> <%= f.submit 'Atualizar operações' %> </td>
+	</tr>
+	<%= f.hidden_field :composicao_de_vagao, :value => @composicao_de_vagao.id %>
+</table>
+
+<% end %>

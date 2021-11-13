@@ -1,0 +1,29 @@
+<%= render 'operacao_com_vagaos/menu' %>
+<%= render 'layouts/final_menu' %> 
+<h1>Selecione o produto da nota novamente para confirmar</h1>
+
+<%= form_for @conjunto_operacoes_de_vagoes, :url => '/conjunto_operacoes_de_vagoes/create' do |f| %>
+
+
+
+<%= f.hidden_field :nota_vt, :value => @conjunto_operacoes_de_vagoes.nota_vt %>
+<%= f.hidden_field :vagoes, :value => @conjunto_operacoes_de_vagoes.vagoes %>
+<%= f.hidden_field :pesos, :value => @conjunto_operacoes_de_vagoes.pesos %>
+<%= f.hidden_field :produto, :value => @conjunto_operacoes_de_vagoes.produto %>
+
+
+<div class="field">
+	<%= f.label :produto_para_confirmar %>
+	<br />
+        <td><%= f.collection_select(:produto_para_confirmar, ProdutoVt.find(:all, :order => "id"), :id, :produtoECertificado, {:include_blank => true}) %></td>
+</div>
+<div class="field">
+	<%= f.label "Total" %>
+	<br />
+        <%= @conjunto_operacoes_de_vagoes.total %>
+</div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

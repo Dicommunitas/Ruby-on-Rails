@@ -1,0 +1,27 @@
+<%= render 'solicitacaos/menu' %>
+<%= render 'layouts/final_menu' %> 
+<%= render 'layouts/notificacoes' %> 
+
+<p>
+  <b>Data hora:</b>
+  <%= formatarDataHora(@solicitacao.data_hora) %>
+</p>
+
+<p>
+  <b>Nome responsável ALL:</b>
+  <%= @solicitacao.responsavel_atender_solicitacao %>
+</p>
+
+<p>
+  <b>Composição de vagões:</b>
+  <%= link_to "Ir para composição: #{@solicitacao.composicao_de_vagao.idEntradaPlataformaInicioDescarga}", @solicitacao.composicao_de_vagao %>
+</p>
+
+<p>
+  <b>Descrição:</b>
+  <%= @solicitacao.descricao %>
+</p>
+
+
+<%= link_to 'Editar', edit_solicitacao_path(@solicitacao) %> 
+<%= link_to 'Deletar', @solicitacao, confirm: 'Você tem certeza?', method: :delete %>

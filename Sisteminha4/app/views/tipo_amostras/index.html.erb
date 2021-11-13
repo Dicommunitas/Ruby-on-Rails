@@ -1,0 +1,22 @@
+<%= render 'tipo_amostras/menu'%>
+<%= render 'layouts/final_menu' %>
+<h1>Tipos de amostras</h1>
+
+<br>
+<table cellpadding="0" cellspacing="0" border="0" class="display dataTable" >
+	<thead>
+		<tr>
+			<th>Número</th>
+			<th>Descrição</th>
+		</tr>
+	</thead>
+	<tbody>
+		<% @tipo_amostras.each do |tipo_amostra| %>
+		<tr>
+			<td><%= link_to tipo_amostra.id, tipo_amostra %></td>
+			<td><%= tipo_amostra.descricao %></td>
+		</tr>
+		<% end %>
+	</tbody>
+</table>
+<br>

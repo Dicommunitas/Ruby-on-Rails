@@ -1,0 +1,21 @@
+<%= form_for(@operacao) do |f| %>
+  <% if @operacao.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@operacao.errors.count, "erro proíbe") %> esta operação de ser salva:</h2>
+
+      <ul>
+      <% @operacao.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :descricao %><br />
+    <%= f.text_field :descricao %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

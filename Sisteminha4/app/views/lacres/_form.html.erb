@@ -1,0 +1,46 @@
+<%= form_for(@lacre) do |f| %>
+<% if @lacre.errors.any? %>
+<div id="error_explanation">
+	<h2><%= pluralize(@lacre.errors.count, "erro proíbe") %> este lacre de ser salvo:</h2>
+	<ul>
+		<% @lacre.errors.full_messages.each do |msg| %>
+		<li>
+			<%= msg %>
+		</li>
+		<% end %>
+	</ul>
+</div>
+<% end %>
+<div class="field">
+	<%= f.label :numero, :Número %>
+	<br />
+	<%= f.number_field :numero %>
+</div>
+<% if @lacre.amostra == nil %>
+<div class="field">
+	<%= f.label :amostra %>
+	<br />
+	<%= f.collection_select(:amostra_id, Amostra.all, :id, :id) %>
+</div>
+<%else%>
+<div class="field">
+	<%= f.label :amostra %>
+	<br />
+	<%= @lacre.amostra.id %>
+	<%= f.hidden_field :amostra_id, :value => @lacre.amostra.id %>
+</div>
+<%end%>
+<div class="field">
+	<%= f.label :finalidade %>
+	<br />
+	<%= f.collection_select(:finalidade_id, Finalidade.all.sort_by{|finalidade| [finalidade.descricao]}, :id, :descricao) %>
+</div>
+<%if @amostra != nil%>
+<div class="field">
+	<%= hidden_field :amostra, :amostra_id, :value => @amostra.id %>
+</div>
+<%end%>
+<div class="actions">
+	<%= f.submit %>
+</div>
+<% end %> 

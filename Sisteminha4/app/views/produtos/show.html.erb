@@ -1,0 +1,18 @@
+<%= render 'produtos/menu' %>
+<%= render 'layouts/final_menu' %>
+<%= render 'layouts/notificacoes' %>
+
+<p>
+	<b>Código:</b>
+	<%= @produto.codigo %>
+</p>
+<p>
+	<b>Nome curto:</b>
+	<%= @produto.nome_curto %>
+</p>
+<p>
+	<b>Nome completo:</b>
+	<%= @produto.nome_completo %>
+</p>
+<%= link_to 'Editar', edit_produto_path(@produto) %> |
+<%= link_to 'Deletar', @produto, confirm: 'Você tem certeza?', method: :delete %> 

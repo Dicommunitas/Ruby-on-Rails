@@ -1,0 +1,29 @@
+<%= form_for(@nota_vt) do |f| %>
+  <% if @nota_vt.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@nota_vt.errors.count, "erro proíbe") %> esta nota de vt de ser salva:</h2>
+
+      <ul>
+      <% @nota_vt.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="field">
+    <%= f.label :numero_v2 %><br />
+    <%= f.number_field :numero_v2 %>
+  </div>
+  <div class="field">
+    <%= f.label :data %><br />
+    <%= f.text_field :data, :value => formatarData(@nota_vt.data) %>
+  </div>
+  <div class="field">
+    <%= f.label :responsavel, :Responsável %><br />
+    <%= f.hidden_field :responsavel_id, :value => @usuario.id %>
+	<%= @usuario.nome %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

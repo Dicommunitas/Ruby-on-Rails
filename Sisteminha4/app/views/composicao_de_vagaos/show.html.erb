@@ -1,0 +1,89 @@
+<%= render 'composicao_de_vagaos/menu'%>
+<%= render 'layouts/final_menu' %>
+<%= render 'layouts/notificacoes' %>
+<p>
+	<b>Número:</b>
+	<%= @composicao_de_vagao.id %>
+</p>
+<p>
+	<b>Responsável:</b>
+	<%= @composicao_de_vagao.responsavel.nome %>
+</p>
+<p>
+	<b>Fechamento diário de vagões:</b>
+	<%= link_to "Ir para fechamento: #{formatarDataHora(@composicao_de_vagao.fechamento_diario_vagao.data)}", @composicao_de_vagao.fechamento_diario_vagao %>
+</p>
+<p>
+	<b>Entrada plataforma:</b>
+	<%= formatarDataHora(@composicao_de_vagao.entrada_plataforma) %>
+</p>
+<p>
+	<b>Inicio descarga:</b>
+	<%= formatarDataHora(@composicao_de_vagao.inicio_descarga) %>
+</p>
+<p>
+	<b>Final descarga:</b>
+	<%= formatarDataHora(@composicao_de_vagao.final_descarga) %>
+</p>
+<p>
+	<b>Saida plataforma:</b>
+	<%= formatarDataHora(@composicao_de_vagao.saida_plataforma) %>
+</p>
+<p>
+	<b>Temperatura:</b>
+	<%= @composicao_de_vagao.temperatura %>
+</p>
+<p>
+	<b>Tanque de destino:</b>
+	<%= @composicao_de_vagao.tanque_destino %>
+</p>
+<p>
+	<b>Operação com vapor:</b>
+	<% if @composicao_de_vagao.utilizou_vapor %>
+	sim
+	<% else %>
+	não
+	<% end %>
+</p>
+<p>
+	<b>Observação:</b>
+	<%= @composicao_de_vagao.observacao %>
+</p>
+<%= link_to 'Editar', edit_composicao_de_vagao_path(@composicao_de_vagao) %>
+<%= link_to 'Deletar', @composicao_de_vagaos_path, confirm: 'Você tem certeza?', method: :delete %>
+<br/>
+<br/>
+<br/>
+
+<h1>Operações com vagões</h1>
+
+
+<% @operacao_com_vagaos = @composicao_de_vagao.operacao_com_vagaos.sort_by(&:updated_at) %>
+<%= render 'operacao_com_vagaos/part_index'%>
+<p>
+	<b>Peso total:</b>
+	<%= @composicao_de_vagao.totalPeso %>
+</p>
+<p>
+	<b>Produto:</b>
+	<%= @composicao_de_vagao.produto %>
+</p>
+
+<br/>
+<br/>
+<h1>Atualizar operações com vagões carregados para esta composição</h1>
+<% @conjunto_operacoes_de_vagoes = @composicao_de_vagao.conjunto_operacoes_de_vagoes %>
+<%= render 'conjunto_operacoes_de_vagoes/form_atualizar_vagoes_carregados'%>
+
+
+
+<br/>
+<br/>
+<br/>
+<% @solicitacaos = @composicao_de_vagao.solicitacaos %>
+<%= render 'solicitacaos/part_index'%>
+<br/>
+<br/>
+<h1>Nova solicitação</h1>
+<% @solicitacao = Solicitacao.new(:composicao_de_vagao_id => @composicao_de_vagao.id) %>
+<%= render 'solicitacaos/form' %>

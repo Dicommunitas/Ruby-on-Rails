@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/Fixtures.html
+
+one:
+  numero: 1
+  amostra: 
+  finalidade: 
+
+two:
+  numero: 1
+  amostra: 
+  finalidade: 

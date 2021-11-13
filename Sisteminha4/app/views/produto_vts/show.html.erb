@@ -1,0 +1,17 @@
+<%= render 'produto_vts/menu' %>
+<%= render 'layouts/final_menu' %> 
+<%= render 'layouts/notificacoes' %> 
+
+<p>
+  <b>Certificado ILAB:</b>
+  <%= @produto_vt.certificado %>
+</p>
+
+<p>
+  <b>Descrição do produto:</b>
+  <%= @produto_vt.descricao_produto.nome_curto %>
+</p>
+
+
+<%= link_to 'Editar', edit_produto_vt_path(@produto_vt) %> |
+<%= link_to 'Deletar', @produto_vt, confirm: 'Você tem certeza?', method: :delete %>

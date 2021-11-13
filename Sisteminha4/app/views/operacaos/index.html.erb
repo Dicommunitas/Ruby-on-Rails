@@ -1,0 +1,22 @@
+<%= render 'operacaos/menu' %>
+<%= render 'layouts/final_menu' %>
+<h1>Operacões</h1>
+
+<br>
+<table cellpadding="0" cellspacing="0" border="0" class="display dataTable" >
+	<thead>
+		<tr>
+			<th>Número</th>
+			<th>Descrição</th>
+		</tr>
+	</thead>
+	<tbody>
+		<% @operacaos.each do |operacao| %>
+		<tr>
+			<td><%= link_to operacao.id, operacao %></td>
+			<td><%= operacao.descricao %></td>
+		</tr>
+		<% end %>
+	</tbody>
+</table>
+<br>

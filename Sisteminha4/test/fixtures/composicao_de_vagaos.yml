@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/Fixtures.html
+
+one:
+  responsavel: 
+  entrada_plataforma: 2012-02-08 01:16:46
+  inicio_descarga: 2012-02-08 01:16:46
+  final_descarga: 2012-02-08 01:16:46
+  saida_plataforma: 2012-02-08 01:16:46
+
+two:
+  responsavel: 
+  entrada_plataforma: 2012-02-08 01:16:46
+  inicio_descarga: 2012-02-08 01:16:46
+  final_descarga: 2012-02-08 01:16:46
+  saida_plataforma: 2012-02-08 01:16:46

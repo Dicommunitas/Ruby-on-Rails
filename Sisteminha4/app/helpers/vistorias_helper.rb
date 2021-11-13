@@ -1,0 +1,2 @@
+module VistoriasHelper
+end

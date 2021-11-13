@@ -1,0 +1,32 @@
+<%= render 'usuarios/menu' %>
+<%= render 'layouts/final_menu' %> 
+<%= render 'layouts/notificacoes' %>
+
+<p>
+  <b>Chave:</b>
+  <%= @usuario.chave %>
+</p>
+
+<p>
+  <b>Nome:</b>
+  <%= @usuario.nome %>
+</p>
+
+<p>
+  <b>Nome de Guerra:</b>
+  <%= @usuario.nome_guerra %>
+</p>
+
+<p>
+  <b>Privilégio:</b>
+  <%= @usuario.privilegio.tipo %>
+</p>
+
+<p>
+  <b>Observação:</b>
+  <%= @usuario.observacao %>
+</p>
+
+
+<%= link_to 'Editar', edit_usuario_path(@usuario) %> 
+<%= link_to 'Deletar', @usuario, confirm: 'Você tem certeza?', method: :delete %>

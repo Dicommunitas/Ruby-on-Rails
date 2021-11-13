@@ -1,0 +1,12 @@
+<%= render 'operacaos/menu' %>
+<%= render 'layouts/final_menu' %> 
+<%= render 'layouts/notificacoes' %>
+
+<p>
+  <b>Descrição:</b>
+  <%= @operacao.descricao %>
+</p>
+
+
+<%= link_to 'Editar', edit_operacao_path(@operacao) %>
+<%= link_to 'Deletar', @operacao, confirm: 'Você tem certeza?', method: :delete %>

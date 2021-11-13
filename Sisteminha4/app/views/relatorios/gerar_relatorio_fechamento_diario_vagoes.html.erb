@@ -1,0 +1,106 @@
+<% @fechamento_diario_vagao.composicao_de_vagaos.each do |composicao_de_vagao| %>
+Número composição de vagão: <%= composicao_de_vagao.id %>
+<table height="10px" border="2px" bordercolor="#000">
+	<tr>
+		<td width="130px"  >
+			<table width="130px" height="10px" border="1px" bordercolor="#000">
+					<%composicao_de_vagao.operacao_com_vagaos.each do |operacao_com_vagao|%> 
+						<tr>
+							<td>
+								<%= operacao_com_vagao.vt.numero_curto %>
+							</td>
+							<td>
+								<%= operacao_com_vagao.peso %>
+							</td>
+						</tr>
+					<%end%>
+					<tr>
+						<td>
+							<b> TOTAL: </b>
+						</td>
+						<td>
+							<b> <%= composicao_de_vagao.totalPeso %> </b>
+						</td>
+					</tr>
+			</table>
+		</td>
+		<td width="500px" >
+			<table width="500px" height="10px" border="0px">
+				<tr>
+					<td>
+						Entrada: <%= formatarDataHora(composicao_de_vagao.entrada_plataforma) %>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						Início: <%= formatarDataHora(composicao_de_vagao.inicio_descarga) %>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						Final: <%= formatarDataHora(composicao_de_vagao.final_descarga) %>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						Saída: <%= formatarDataHora(composicao_de_vagao.saida_plataforma) %>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						Temperatura: <%= composicao_de_vagao.temperatura %> ºC
+					</td>
+				</tr>
+				<tr>
+					<td>
+						Produto: <%= composicao_de_vagao.produto %>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						Tanque: <%= composicao_de_vagao.tanque_destino %>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						Vapor: <% if composicao_de_vagao.utilizou_vapor %> 
+									Sim
+								<% else %>
+									Não
+								<% end %>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						Responsável: <%= composicao_de_vagao.responsavel.nome %>
+					</td>
+				</tr>
+				<tr>
+					<td>		
+						Solicitações:
+						<table width="500px" height="10px" border="1px">
+							<% composicao_de_vagao.solicitacaos.each do |solicitacao| %>
+								<tr width="500px" >
+									<td>
+										<b>Horário: <%= formatarDataHora(solicitacao.data_hora) %></b>
+									</td>
+								</tr>
+								<tr>
+									<td>
+										Contato ALL: <%= solicitacao.responsavel_atender_solicitacao %>
+									</td>
+								</tr>
+								<tr>
+									<td>
+										Descrição: <%= solicitacao.descricao %>
+									</td>
+								</tr>
+							<% end %>
+						</table>
+					</td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+</table>
+<%end%> 

@@ -1,0 +1,21 @@
+<%= form_for(@problema) do |f| %>
+  <% if @problema.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@problema.errors.count, "erro proíbe") %> este problema de ser salvo:</h2>
+
+      <ul>
+      <% @problema.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :descricao %><br />
+    <%= f.text_field :descricao %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

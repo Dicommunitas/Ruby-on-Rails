@@ -1,0 +1,24 @@
+<%= render 'produto_vts/menu'%>
+<%= render 'layouts/final_menu' %>
+<h1>Produto de vagões</h1>
+
+<br>
+<table cellpadding="0" cellspacing="0" border="0" class="display dataTable" >
+	<thead>
+		<tr>
+			<th>Número</th>
+			<th>Certificado</th>
+			<th>Produto</th>
+		</tr>
+	</thead>
+	<tbody>
+		<% @produto_vts.each do |produto_vt| %>
+		<tr>
+			<td><%= link_to produto_vt.id, produto_vt %></td>
+			<td><%= produto_vt.certificado %></td>
+			<td><%= produto_vt.descricao_produto.nome_curto %></td>
+		</tr>
+		<% end %>
+	</tbody>
+</table>
+<br>

@@ -1,0 +1,154 @@
+<table width="1000px" border="3px" bordercolor="#000">
+	<tr>
+		<td>
+		<table border="3px" bordercolor="#000">
+			<tr>
+				<td width="230px" ><b>
+				<p>
+					Terminal de Paranaguá
+				</p> </b></td>
+
+				<td width="770px" >
+				<p>
+					<b>RECIBO DE AMOSTRAS E DOCUMENTOS </b> <br> RECEIPT FOR SAMPLES AND DOCUMENTS
+				</p> </td>
+			</tr>
+		</table>
+		<table border="3px" bordercolor="#000">
+			<tr>
+				<td width="230px" height="50px" >
+				<p>
+					<b>AO CMTE. NAVIO</b> <br> TO MASTER VESSEL
+				</p> </td>
+
+				<td width="500px"><b> <p>
+
+				</p> </b></td>
+
+				<td width="100px" >
+				<p>
+					<b>DATA</b> <br> DATE
+				</p> </td>
+
+				<td width="200px" ><b> <p>
+
+				</p> </b></td>
+
+			</tr>
+			<tr>
+				<td>
+				<p>
+					<b>VIAGEM</b> <br> VOYAGE
+				</p> </td>
+
+				<td><b> <p>
+
+				</p> </b></td>
+
+				<td>
+				<p>
+					<b> HORA </b> <br> HOUR
+				</p> </td>
+
+				<td><b> <p>
+
+				</p> </b></td>
+
+			</tr>
+		</table>
+		<table border="3px" bordercolor="#000">
+			<tr>
+				<td width="1000px" height="50px">
+				<p>
+					<b>DESCRIÇÃO DE AMOSTRAS ENTREGUE AO COMANDANTE</b> / DESCRIPTION OF SAMPLES DELIVERED TO MASTER
+				</p> </td>
+
+			</tr>
+		</table>
+		<table border="3px" bordercolor="#000">
+			<tr>
+				<td width="600px" height="50px">
+				<p>
+					<b>DESCRIÇÃO</b> <br> DESCRIPTION
+				</p> </td>
+				
+				<td>
+				<p>
+					<b>PRODUTO</b> <br> PRODUCT
+				</p> </td>
+				
+				<td>
+				<p>
+					<b>LACRE</b> <br> SEAL
+				</p> </td>
+			</tr>
+
+			<% @amostras.each do |amostra| %>
+			<% amostra.lacres.reverse.each do |lacre| %>
+			<% if lacre.finalidade.id == 3 %>
+
+			<tr>
+				<td>
+				<p>
+					Operação / Operation: <%= amostra.operacao.descricao%> -
+					Origem / Source: <%= amostra.origem.descricao%> -
+					<%= amostra.observacao%>
+					
+				</p></td>
+
+				<td>
+				<p>
+					<%= amostra.produto.nome_curto %>
+				</p></td>
+
+				<td>
+				<p>
+					<%= lacre.numero %>
+				</p></td>
+
+			</tr>
+			
+			<% end %>
+			<%end%>
+			<%end%>
+		</table>
+</table>
+</tr>
+</td>
+<table width="1000px" border="0px" >
+
+	<tr>
+		<td><b>
+		<p>
+			Terminal:
+			<br/>
+			<br/>
+			<br/>
+			<br/>
+			_______________________________
+
+		</b> </p> </td>
+
+		<td><b>
+		<p>
+			Navio / Vessel:
+			<br/>
+			<br/>
+			<br/>
+			<br/>
+			_______________________________
+
+		</b> </p> </td>
+
+		<td><b>
+		<p>
+			Inspetora / Surveyor:
+			<br/>
+			<br/>
+			<br/>
+			<br/>
+			_______________________________
+
+		</b> </p> </td>
+	</tr>
+</table>

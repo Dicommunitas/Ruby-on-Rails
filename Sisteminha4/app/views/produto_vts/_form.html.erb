@@ -1,0 +1,25 @@
+<%= form_for(@produto_vt) do |f| %>
+  <% if @produto_vt.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@produto_vt.errors.count, "erro proíbe") %> este produto de vt de ser salvo:</h2>
+
+      <ul>
+      <% @produto_vt.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :certificado %><br />
+    <%= f.text_field :certificado %>
+  </div>
+  <div class="field">
+    <%= f.label :descricao_produto %><br />
+    <%= f.collection_select(:descricao_produto_id, Produto.find(:all, :order => "codigo"), :id, :descricaoCompleta, {:include_blank => true}) %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

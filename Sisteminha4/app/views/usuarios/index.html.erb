@@ -1,0 +1,30 @@
+<%= render 'usuarios/menu' %>
+<%= render 'layouts/final_menu' %>
+<h1>Usuários</h1>
+
+<br>
+<table cellpadding="0" cellspacing="0" border="0" class="display dataTable" >
+	<thead>
+		<tr>
+			<th>Link</th>
+			<th>Chave</th>
+			<th>Nome</th>
+			<th>Nome de Guerra</th>
+			<th>Privilégio</th>
+			<th>Observação</th>
+		</tr>
+	</thead>
+	<tbody>
+		<% @usuarios.sort_by{|usuario| [usuario.nome_guerra]}.each do |usuario| %>
+		<tr>
+			<td><%= link_to :ver, usuario %></td>
+			<td><%= usuario.chave %></td>
+			<td><%= usuario.nome %></td>
+			<td><%= usuario.nome_guerra %></td>
+			<td><%= usuario.privilegio.tipo %></td>
+			<td><%= usuario.observacao %></td>
+		</tr>
+		<% end %>
+	</tbody>
+</table>
+<br>

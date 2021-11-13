@@ -1,0 +1,29 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
+"http://www.w3.org/TR/html4/strict.dtd">
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<link rel="shortcut icon" href="/br.ico" />
+		<title>Sistema de Acompanhamento e Controle de Operações</title>
+
+		<%= stylesheet_link_tag    "application" %>
+		<%= javascript_include_tag "application" %>
+		<%= csrf_meta_tags %>
+	</head>
+	<body>
+
+		<div id="header">
+			<nome>
+				TRANSPETRO - Terminal de Paranaguá
+				<subtitle>
+					Sistema de Acompanhamento e Controle de Operações
+				</subtitle>
+			</nome>
+		</div>
+
+		<%= render 'layouts/menu' %>
+			<%= yield %>
+		<%= render 'layouts/final_yield' %>
+		
+	</body>
+</html>

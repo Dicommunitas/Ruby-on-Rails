@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/Fixtures.html
+
+one:
+  lacre: 1
+  data: 2012-01-01 18:12:59
+  certificado_Ilab: MyString
+  numero_gerado_Labware: 1
+  responsavel: 
+  operacao: 
+  origem: 
+  tipo_amostra: 
+  produto: 
+
+two:
+  lacre: 1
+  data: 2012-01-01 18:12:59
+  certificado_Ilab: MyString
+  numero_gerado_Labware: 1
+  responsavel: 
+  operacao: 
+  origem: 
+  tipo_amostra: 
+  produto: 

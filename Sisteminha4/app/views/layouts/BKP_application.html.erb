@@ -1,0 +1,27 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
+"http://www.w3.org/TR/html4/strict.dtd">
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<link rel="shortcut icon" href="br.ico" />
+		<title>Terminal de Paranaguá</title>
+		
+		<%= stylesheet_link_tag    "application" %>
+		<%= javascript_include_tag "application" %>
+		<%= csrf_meta_tags %>
+	</head>
+	<body>
+		<div id="wrapper">
+			<div id="header">
+				<nome>
+					Terminal de Paranaguá
+					<subtitle>O desafio é a nossa energia.</subtitle>
+				</nome>
+				<%= render 'layouts/menu' %> <button_b tabindex="0" href="#news-items" class="fg-button fg-button-icon-right ui-widget ui-state-default ui-corner-all" id="hierarchy"><span class="ui-icon ui-icon-triangle-1-s"></span>Menu Secundário</button_b>
+				<div id="news-items" class="hidden">
+					<ul>
+						<%= yield %>
+				</div>
+			</div>
+	</body>
+</html>

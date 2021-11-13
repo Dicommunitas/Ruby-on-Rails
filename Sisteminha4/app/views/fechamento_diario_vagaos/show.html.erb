@@ -1,0 +1,32 @@
+<%= render 'fechamento_diario_vagaos/menu'%>
+<%= render 'layouts/final_menu' %> 
+<%= render 'layouts/notificacoes' %> 
+<p>
+	<b>Número:</b>
+	<%= @fechamento_diario_vagao.id %>
+</p>
+<p>
+	<b>Data:</b>
+	<%= formatarDataHora(@fechamento_diario_vagao.data) %>
+</p>
+<%= link_to 'Editar', edit_fechamento_diario_vagao_path(@fechamento_diario_vagao) %>
+<%= link_to 'Deletar', @fechamento_diario_vagao, confirm: 'Você tem certeza?', method: :delete %>
+<br/>
+<br/>
+<br/>
+<% @composicao_de_vagaos = @fechamento_diario_vagao.composicao_de_vagaos %>
+<%= render 'composicao_de_vagaos/part_index'%>
+<p>
+	<b>Total:</b>
+	<%= @fechamento_diario_vagao.pesoTotal %>
+</p>
+<p>
+	<b>Quantidade de vagões:</b>
+	<%= @fechamento_diario_vagao.qtdOperacoes %>
+</p>
+
+<br/>
+<br/>
+<h1>Nova composição de vagões</h1>
+<% @composicao_de_vagao = ComposicaoDeVagao.new(:fechamento_diario_vagao_id => @fechamento_diario_vagao.id) %>
+<%= render 'composicao_de_vagaos/form'%>

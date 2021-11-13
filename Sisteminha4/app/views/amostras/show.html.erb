@@ -1,0 +1,65 @@
+<%= render 'amostras/menu' %>
+<%= render 'layouts/final_menu' %> 
+<%= render 'layouts/notificacoes' %> 
+
+
+<p>
+	<b>Número:</b>
+	<%= @amostra.id %>
+</p>
+<p>
+	<b>Data:</b>
+	<%= formatarDataHora(@amostra.data) %>
+</p>
+<p>
+	<b>Certificado ILAB:</b>
+	<%= @amostra.certificado_Ilab %>
+</p>
+<p>
+	<b>Número gerado pelo labware:</b>
+	<%= @amostra.numero_gerado_Labware %>
+</p>
+<p>
+	<b>Responsável:</b>
+	<%= @amostra.responsavel.nome %>
+</p>
+<p>
+	<b>Operação:</b>
+	<%= @amostra.operacao.descricao %>
+</p>
+<p>
+	<b>Origem:</b>
+	<%= @amostra.origem.descricao %>
+</p>
+<p>
+	<b>Tipo de amostra:</b>
+	<%= @amostra.tipo_amostra.descricao %>
+</p>
+<p>
+	<b>Produto:</b>
+	<%= @amostra.produto.nome_curto %>
+</p>
+<p>
+	<b>Observação:</b>
+	<%= @amostra.observacao %>
+</p>
+<%= link_to 'Editar', edit_amostra_path(@amostra) %>
+<%= link_to 'Deletar', @amostra, confirm: 'Você tem certeza?', method: :delete %>
+<br/>
+<br/>
+<!--
+<%=  form_tag('/amostras/duplicar_amostra') do %>
+<%= hidden_field_tag(:id, @amostra.id) %>
+<input class='actions' value= 'Duplicar esta amostra' type='submit' />
+<% end %>
+<br/>
+<br/>
+-->
+
+<% @lacres = @amostra.lacres %>
+<%= render 'lacres/part_index' %>
+<br/>
+<br/>
+<h1>Novo lacre</h1>
+<% @lacre = Lacre.new(:amostra_id => @amostra.id)%>
+<%= render 'lacres/form' %>

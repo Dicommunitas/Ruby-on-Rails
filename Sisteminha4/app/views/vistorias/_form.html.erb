@@ -1,0 +1,46 @@
+<%= form_for(@vistoria) do |f| %>
+<% if @vistoria.errors.any? %>
+<div id="error_explanation">
+	<h2><%= pluralize(@vistoria.errors.count, "erro proíbe") %> esta vistoria de ser salva:</h2>
+	<ul>
+		<% @vistoria.errors.full_messages.each do |msg| %>
+		<li>
+			<%= msg %>
+		</li>
+		<% end %>
+	</ul>
+</div>
+<% end %>
+<div class="field">
+	<%= f.label :data %>
+	<br />
+	<%= f.text_field :data, :value => formatarData(@vistoria.data) %>
+</div>
+<% if @vistoria.vt == nil %>
+<div class="field">
+	<%= f.label :vt %>
+	<br />
+	<%= f.collection_select(:vt_id, Vt.all.sort_by{|vt| [vt.numero_curto]}, :id, :numero_curto) %>
+</div>
+<%else%>
+<div class="field">
+	<%= f.label :vt %>
+	<br />
+	<%= @vistoria.vt.numero_curto %>
+	<%= f.hidden_field :vt_id, :value => @vistoria.vt.id %>
+</div>
+<%end%>
+<div class="field">
+	<%= f.label :problemas %>
+	<br />
+	<% Problema.all.each do |problema| %>
+	<li>
+		<%= check_box_tag :problema_ids, problema.id, @vistoria.problemas.include?(problema), :name => 'vistoria[problema_ids][]' %>
+		<%= label_tag :problema_ids, problema.descricao %>
+	</li>
+	<% end %>
+</div>
+<div class="actions">
+	<%= f.submit %>
+</div>
+<% end %> 

@@ -1,0 +1,34 @@
+<%= render 'operacao_com_vagaos/menu' %>
+<%= render 'layouts/final_menu' %> 
+
+<h1>Confirmar atualizacões</h1>
+<%= form_for @conjunto_operacoes_de_vagoes, :url => '/conjunto_operacoes_de_vagoes/atualizar_operacoes' do |f| %>
+<table>
+	<tr>
+		<td><b>Selecionar</b></td>
+		<td><b>Vagão</b></td>
+		<td><b>Peso</b></td>
+		<td><b>Produto</b></td>
+	</tr>
+	<% @conjunto_operacoes_de_vagoes.op_vts.each do |op| %>
+		<tr>
+			<td><%= check_box_tag 'conjunto_operacoes_de_vagoes[op_vts][]', op.id %></td>
+			<td><%= op.vt.numero_curto %></td>
+			<td><%= op.peso %></td>
+			<td><b><%= op.produto_vt.descricao_produto.nome_curto %></b></td>
+		</tr>
+	<%end%>
+</table>
+<%= @conjunto_operacoes_de_vagoes.numeroDeOperacoes %>
+<%= f.hidden_field :composicao_de_vagao, :value => @conjunto_operacoes_de_vagoes.composicao_de_vagao.id %>
+<%= f.hidden_field :vagoes, :value => @conjunto_operacoes_de_vagoes.vagoes %>
+
+<div class="actions">
+	<%= f.submit 'Aceitar atualizações'%>
+</div>
+<% if @conjunto_operacoes_de_vagoes.produtosDiferentes? %>
+	<font color="red" size="5">  Produtos diferentes </font>
+<%end%>
+<% end %>
+
+

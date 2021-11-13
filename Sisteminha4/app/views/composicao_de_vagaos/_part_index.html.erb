@@ -1,0 +1,36 @@
+<h1>Composições de vagões</h1>
+
+<br>
+<table cellpadding="0" cellspacing="0" border="0" class="display dataTable" >
+	<thead>
+		<tr>
+			<th>Link</th>
+			<th>Início da descarga</th>
+			<th>Final da descarga</th>
+			<th>Produto</th>
+			<th>Qant.</th> 
+			<th>Peso</th>
+			<th>Finalizada?</th>
+		</tr>
+	</thead>
+	<tbody>
+		<% @composicao_de_vagaos.reverse.each do |composicao_de_vagao| %>
+		<tr>
+			<td><%= link_to :ver, composicao_de_vagao %></td>
+			<td><%= formatarDataHora(composicao_de_vagao.inicio_descarga) %></td>
+			<td><%= formatarDataHora(composicao_de_vagao.final_descarga) %></td>
+			<td><%= composicao_de_vagao.produto %></td>
+			<td><%= composicao_de_vagao.qtdOperacoes %></td>
+			<td><%= composicao_de_vagao.totalPeso %></td>
+			<td>
+				<% if composicao_de_vagao.operacoesFinalizadas? %>
+				sim
+				<% else %>
+				não
+				<% end %>
+			</td>
+		</tr>
+		<% end %>
+	</tbody>
+</table>
+<br>

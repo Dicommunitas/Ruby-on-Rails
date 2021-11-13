@@ -1,0 +1,46 @@
+<%= form_for(@solicitacao) do |f| %>
+<% if @solicitacao.errors.any? %>
+<div id="error_explanation">
+	<h2><%= pluralize(@solicitacao.errors.count, "erro proíbe") %> esta solicitação de ser salva:</h2>
+	<ul>
+		<% @solicitacao.errors.full_messages.each do |msg| %>
+		<li>
+			<%= msg %>
+		</li>
+		<% end %>
+	</ul>
+</div>
+<% end %>
+<div class="field">
+	<%= f.label :data_hora, 'Data e hora' %>
+	<br />
+	<%= f.text_field :data_hora, :value => formatarDataHora(@solicitacao.data_hora) %>
+</div>
+<div class="field">
+	<%= f.label :responsavel_atender_solicitacao, 'Nome responsável ALL' %>
+	<br />
+	<%= f.text_field :responsavel_atender_solicitacao %>
+</div>
+<% if @solicitacao.composicao_de_vagao == nil %>
+<div class="field">
+	<%= f.label :composicao_de_vagao, 'Composição de vagão' %>
+	<br />
+	<%= f.collection_select(:composicao_de_vagao_id, ComposicaoDeVagao.all, :id, :idEntradaPlataformaInicioDescarga, {:include_blank => true}) %>
+</div>
+<% else %>
+<div class="field">
+	<%= f.label :composicao_de_vagao, 'Composição de vagão' %>
+	<br />
+	<%= @solicitacao.composicao_de_vagao.idEntradaPlataformaInicioDescarga %>
+	<%= f.hidden_field :composicao_de_vagao_id, :value => @solicitacao.composicao_de_vagao.id %>
+</div>
+<% end %>
+<div class="field">
+	<%= f.label :descricao, 'Descrição' %>
+	<br />
+	<%= f.text_area :descricao %>
+</div>
+<div class="actions">
+	<%= f.submit %>
+</div>
+<% end %> 

@@ -1,0 +1,49 @@
+<%= render 'nota_vts/menu'%>
+<%= render 'layouts/final_menu' %>
+<h1>Notas de vagões</h1>
+
+
+<%=  form_tag('/buscar_notas_de_vts') do %>
+Buscar notas de vagões datadas de 
+<%= text_field_tag :data_inicial %>
+até
+<%= text_field_tag :data_final %>
+<input class='actions' value= 'Buscar' type='submit' />
+<% end %>
+
+
+
+<br>
+<table cellpadding="0" cellspacing="0" border="0" class="display dataTable" >
+	<thead>
+		<tr>
+			<th>Link</th>
+			<th>Número da V2</th>
+			<th>Data</th>
+			<th>Produto</th>
+			<th>Qtd de Vt's</th>
+			<th>Nota finalizada?</th>
+			<th>Peso total:</th>
+		</tr>
+	</thead>
+	<tbody>
+		<% @nota_vts.sort_by{|nota_vt| [nota_vt.data, nota_vt.numero_v2]}.reverse.each do |nota_vt| %>
+		<tr>
+			<td><%= link_to :ver, nota_vt %></td>
+			<td><%= nota_vt.numero_v2 %></td>
+			<td><%= formatarData(nota_vt.data) %></td>
+			<td><%= nota_vt.produtos %></td>
+			<td><%= nota_vt.qtdOperacoes %></td>
+			<td>
+				<% if nota_vt.operacoesFinalizadas %>
+					sim
+				<%else%>
+					não
+				<%end%>
+			</td>
+			<td><%= nota_vt.pesoTotal %></td>
+		</tr>
+		<% end %>
+	</tbody>
+</table>
+<br>

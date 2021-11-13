@@ -1,0 +1,22 @@
+<%= render 'lacres/menu' %>
+<%= render 'layouts/final_menu' %> 
+<%= render 'layouts/notificacoes' %> 
+
+<p>
+  <b>Número:</b>
+  <%= @lacre.numero %>
+</p>
+
+<p>
+  <b>Amostra:</b>
+  <%= link_to @lacre.amostra.id, @lacre.amostra %>
+</p>
+
+<p>
+  <b>Finalidade:</b>
+  <%= @lacre.finalidade.descricao %>
+</p>
+
+
+<%= link_to 'Editar', edit_lacre_path(@lacre) %> 
+<%= link_to 'Deletar', @lacre, confirm: 'Você tem certeza?', method: :delete %>

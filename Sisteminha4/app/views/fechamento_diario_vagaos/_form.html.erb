@@ -1,0 +1,21 @@
+<%= form_for(@fechamento_diario_vagao) do |f| %>
+  <% if @fechamento_diario_vagao.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@fechamento_diario_vagao.errors.count, "erro proíbe") %> este fechamento diário de vagões de ser salvo:</h2>
+
+      <ul>
+      <% @fechamento_diario_vagao.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :datahora %><br />
+    <%= f.text_field :data, :value => formatarDataHora(@fechamento_diario_vagao.data) %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

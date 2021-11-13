@@ -1,0 +1,97 @@
+<% @composicao_de_vagaos.each do |composicao_de_vagao| %>
+<% if composicao_de_vagao.consistente? %>
+<table  width="1000px" border="3px" bordercolor="#000">
+	<tr>
+		<td><b>
+		<p>
+			Hora da entrada: <%= formatarDataHora(composicao_de_vagao.entrada_plataforma) %>
+		</p> </b></td>
+		<td><b>
+		<p>
+			Início da Descarga: <%= formatarDataHora(composicao_de_vagao.inicio_descarga) %>
+		</p> </b></td>
+		<td><b>
+		<p>
+			Data da V2: 
+			<% composicao_de_vagao.datasDasNotas.each do |d| %>
+				<%= formatarData(d)%> </br>
+			<%end%>
+		</p> </b></td>
+		<td><b>
+		<p>
+			<table width="400px" border="1px" bordercolor="#000">
+				<tr>
+					<td><b>
+					<p>
+						Contatos com ALL: <% composicao_de_vagao.solicitacaos.each do |solicitacao| %>
+						<table width="400px" border="1px" bordercolor="#000">
+							<tr>
+								<td><b>
+								<p>
+									Horário: <%= formatarDataHora(solicitacao.data_hora) %>
+								</p> </b></td>
+								<td><b>
+								<p>
+									Responsável ALL: <%= solicitacao.responsavel_atender_solicitacao %>
+								</p> </b></td>
+								<td><b>
+								<p>
+									Descricao: <%= solicitacao.descricao%>
+								</p> </b></td>
+							</tr>
+						</table>
+						<%end%>
+					</p> </b></td>
+				</tr>
+			</table>
+		</p> </b></td>
+		<td><b>
+		<p>
+			Final da Descarga: <%= formatarDataHora(composicao_de_vagao.final_descarga) %>
+		</p> </b></td>
+		<td><b>
+		<p>
+			Retirada: <%= formatarDataHora(composicao_de_vagao.saida_plataforma) %>
+		</p> </b></td>
+		<td><b>
+		<p>
+			TEMP °C: <%= composicao_de_vagao.temperatura %>
+		</p> </b></td>
+		<td><b>
+		<p>
+			Produto: <%= composicao_de_vagao.produto %>
+		</p> </b></td>
+		<td><b>
+		<p>
+			Qtd. de VTs: <%= composicao_de_vagao.qtdOperacoes %>
+		</p> </b></td>
+		<td><b>
+		<p>
+			Tempo p/ início descarga: <%= formatarSeg(composicao_de_vagao.tempoParaInicio) %>
+		</p> </b></td>
+		<td><b>
+		<p>
+			Tempo até liberação: <%= formatarSeg(composicao_de_vagao.tempoParaLiberar) %>
+		</p> </b></td>
+		<td><b>
+		<p>
+			Tempo Transpetro: <%= formatarSeg(composicao_de_vagao.tempoTranspetro) %>
+		</p> </b></td>
+		<td><b>
+		<p>
+			Tempo para troca - ALL: <%= formatarSeg(composicao_de_vagao.tempoAll) %>
+		</p> </b></td>
+		<td><b>
+		<p>
+			Obs: <%= composicao_de_vagao.observacao %>
+		</p> </b></td>
+
+	</tr>
+</table>
+
+
+<br/>
+<br/>
+<br/>
+<%end%> 
+<%end%> 

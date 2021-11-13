@@ -1,0 +1,17 @@
+<%= render 'grupo_usuarios/menu' %>
+<%= render 'layouts/final_menu' %> 
+<%= render 'layouts/notificacoes' %>
+
+<p>
+  <b>Tipo:</b>
+  <%= @grupo_usuario.tipo %>
+</p>
+
+<p>
+  <b>Descrição:</b>
+  <%= @grupo_usuario.descricao %>
+</p>
+
+
+<%= link_to 'Editar', edit_grupo_usuario_path(@grupo_usuario) %>
+<%= link_to 'Deletar', @amostra, confirm: 'Você tem certeza?', method: :delete %>

@@ -1,0 +1,143 @@
+<%= form_for @amostras_navio, :url => '/amostras_navio/create' do |f| %>
+
+<% if @amostras_navio.errors.any? %>
+<div id="error_explanation">
+	<h2><%= pluralize(@amostras_navio.errors.count, "erro proíbe") %> estas amostras de serem salvas:</h2>
+	<ul>
+		<% @amostras_navio.errors.full_messages.each do |msg| %>
+		<li>
+			<%= msg %>
+		</li>
+		<% end %>
+	</ul>
+</div>
+<% end %>
+
+<div class="field">
+	<%= f.label :data %>
+	<br />
+	<%= f.text_field :data, :value => formatarDataHora(@amostras_navio.data) %>
+</div>
+
+<div class="field">
+	<%= f.label :responsavel, :Responsável %>
+	<br />
+	<%= @usuario.nome %>
+	<%= f.hidden_field :responsavel, :value => @usuario.id %>
+</div>
+
+<div class="field">
+	<%= f.label :operacao, :Operação %>
+	<br />
+	<%= f.collection_select(:operacao, Operacao.find(:all, :order => "descricao"), :id, :descricao, {:include_blank => true}) %>
+</div>
+
+<div class="field">
+	<%= f.label :produto %>
+	<br />
+	<%= f.collection_select(:produto, Produto.find(:all, :order => "codigo"), :id, :descricaoCompleta, {:include_blank => true}) %>
+</div>
+
+<div class="field">
+	<%= f.label :nome_navio, 'Nome do navio' %>
+	<br />
+	<%= f.text_field :nome_navio %>
+</div>
+
+<div class="field">
+	<%= f.label :viagem %>
+	<br />
+	<%= f.text_field :viagem %>
+</div>
+
+<div class="field">
+	<%= f.label :berco, 'Berço' %>
+	<br />
+	<%= select( :amostras_navio, :berco, {"Escolha o berço" => "", "PP1" => "PP1", "PP2" => "PP2"}) %>
+</div>
+
+<div class="field">
+	<%= f.label :tanques %>
+	<br />
+	<table>	
+		<tr>
+			<% grupoTanquesNavio.each do |tq| %>
+		
+				<% if ["01BB/P","01CE BB/P", "01CE", "01CE BE/P", "01BE/S"].include?(tq) %>
+					<td>
+				<%end%>
+					<li>
+						<%= check_box_tag "amostras_navio[tanques][]", tq, @amostras_navio.tanques.include?(tq) %>
+						<%= label_tag tq, tq %>
+						<br/>
+					</li>
+				<% if ["Slop BB/P", "15CE BB/P","Slop CE", "15CE BE/P", "Slop BE/S"].include?(tq) %>
+				&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp 
+					</td>
+				<%end%>
+		
+			<% end %>
+		</tr>
+	</table>
+</div>
+
+<table>
+	<tr>
+		<td>
+			<div class="field">
+				<%= f.label :finalidades %>
+				<br />
+				<table>
+					<tr>
+						<td>
+							<%= check_box_tag "amostras_navio[finalidades][]", "arquivo_terminal", @amostras_navio.finalidades.include?("arquivo_terminal") %>
+							<%= label_tag "Arquivo terminal" %>
+							<br/>
+							<%= check_box_tag "amostras_navio[finalidades][]", "analise_terminal", @amostras_navio.finalidades.include?("analise_terminal") %>
+							<%= label_tag "Análise terminal" %>
+							<br/>
+							<%= check_box_tag "amostras_navio[finalidades][]", "arquivo_navio", @amostras_navio.finalidades.include?("arquivo_navio") %>
+							<%= label_tag "Arquivo navio" %>
+							<br/>
+							<%= check_box_tag "amostras_navio[finalidades][]", "repar", @amostras_navio.finalidades.include?("repar") %>
+							<%= label_tag "Repar" %>
+							<br/>
+						</td>
+					</tr>
+				</table>
+				<br/>
+				<br/>
+				<br/>
+				<br/>
+				<br/>
+				<br/>
+				<br/>
+				<br/>
+				<br/>
+				<br/>
+				<br/>
+				<br/>
+				<br/>
+			</div>
+		</td>
+		<td>
+			<div class="field">
+				<%= f.label :lacres %>
+				<br/>
+				<%= f.text_area :lacres, :size => "15x20" %>
+			</div>
+		</td>
+	</tr>
+</table>
+
+<div class="field">
+	<%= f.label :observacao, 'Observação' %>
+	<br />
+	<%= f.text_area :observacao %>
+</div>
+
+<div class="actions">
+	<%= f.submit %>
+</div>
+
+<% end %> 

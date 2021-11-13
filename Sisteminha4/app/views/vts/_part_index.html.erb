@@ -1,0 +1,36 @@
+<h1>Vagões</h1>
+<br>
+<table cellpadding="0" cellspacing="0" border="0" class="display dataTable" >
+	<thead>
+		<tr>
+			<th>Número</th>
+			<th>Identificaçao curta</th>
+			<th>Identificação completa</th>
+			<th>Carregado?</th>
+			<th>Última vistoria</th>
+		</tr>
+	</thead>
+	<tbody>
+		<% @vts.each do |vt| %>
+		<tr>
+			<td><%= link_to vt.id, vt %></td>
+			<td><%= vt.numero_curto %></td>
+			<td><%= vt.identificacao_completa %></td>
+			<td><% if vt.vt_carregado%>
+			sim
+			<% else %>
+			não
+			<% end %></td>
+			<% if vt.ultimaVistoria != nil %>
+			<td> <% vt.ultimaVistoria.problemas.each do |problema| %>
+			<%= problema.descricao %> </br>
+			<% end %> </td>
+			<% else %>
+			<td> Sem Vistoria</td>
+			<% end %>
+		</tr>
+		<% end %>
+	</tbody>
+</table>
+<br>
+

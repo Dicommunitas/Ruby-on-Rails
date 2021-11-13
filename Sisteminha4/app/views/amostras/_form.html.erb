@@ -1,0 +1,76 @@
+<%= form_for(@amostra) do |f| %>
+<% if @amostra.errors.any? %>
+<div id="error_explanation">
+	<h2><%= pluralize(@amostra.errors.count, "erro proíbe") %> esta amostra de ser salva:</h2>
+	<ul>
+		<% @amostra.errors.full_messages.each do |msg| %>
+		<li>
+			<%= msg %>
+		</li>
+		<% end %>
+	</ul>
+</div>
+<% end %>
+<div class="field">
+	<%= f.label :data %>
+	<br />
+        <%= f.text_field :data, :value => formatarDataHora(@amostra.data) %>
+</div>
+<%if @usuario.privilegio.id == 3 %>
+<div class="field">
+	<%= f.label :certificado_Ilab %>
+	<br />
+	<%= f.text_field :certificado_Ilab %>
+</div>
+<div class="field">
+	<%= f.label :numero_gerado_Labware , "Número gerado pelo Labware"%>
+	<br />
+	<%= f.number_field :numero_gerado_Labware %>
+</div>
+<%end%>
+<div class="field">
+	<%= f.label :responsavel, :Responsável %>
+	<br />
+	<%if @usuario.privilegio.id == 3 %>
+		<%if @amostra.responsavel != nil %>
+			<%= f.hidden_field :responsavel_id, :value => @amostra.responsavel.id %>
+			<%= @amostra.responsavel.nome %>
+		<%else%>
+			<%= f.hidden_field :responsavel_id, :value => @usuario.id %>
+			<%= @usuario.nome %>
+		<%end%>
+	<%else%>
+	<%= f.hidden_field :responsavel_id, :value => @usuario.id %>
+	<%= @usuario.nome %>
+	<%end%>
+</div>
+<div class="field">
+	<%= f.label :operacao, :Operação %>
+	<br />
+	<%= f.collection_select(:operacao_id, Operacao.find(:all, :order => "descricao"), :id, :descricao, {:include_blank => true}) %>
+</div>
+<div class="field">
+	<%= f.label :origem %>
+	<br />
+	<%= f.collection_select(:origem_id, Origem.find(:all, :order => "descricao"), :id, :descricao, {:include_blank => true}) %>
+</div>
+<div class="field">
+	<%= f.label :tipo_amostra, "Tipo de amostra" %>
+	<br />
+	<%= f.collection_select(:tipo_amostra_id, TipoAmostra.find(:all, :order => "descricao"), :id, :descricao, {:include_blank => true}) %>
+</div>
+<div class="field">
+	<%= f.label :produto %>
+	<br />
+	<%= f.collection_select(:produto_id, Produto.find(:all, :order => "codigo"), :id, :descricaoCompleta, {:include_blank => true}) %>
+</div>
+<div class="field">
+	<%= f.label :observacao, :Observação %>
+	<br />
+	<%= f.text_area :observacao %>
+</div>
+<div class="actions">
+	<%= f.submit %>
+</div>
+
+<% end %> 

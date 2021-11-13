@@ -1,0 +1,2 @@
+module NotaVtsHelper
+end

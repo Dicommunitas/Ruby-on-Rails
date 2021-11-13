@@ -1,0 +1,24 @@
+<h1>Lacres</h1>
+
+<br>
+<table cellpadding="0" cellspacing="0" border="0" class="display dataTable" >
+	<thead>
+		<tr>
+			<th>Link</th>
+			<th>Número do lacre</th>
+			<th>Amostra</th>
+			<th>Finalidade</th>
+		</tr>
+	</thead>
+	<tbody>
+		<% @lacres.sort_by{|lacre| [-lacre.amostra.id,lacre.id]}.each do |lacre| %>
+		<tr>
+			<td><%= link_to :ver, lacre %></td>
+			<td><%= lacre.numero %></td>
+			<td><%= lacre.amostra.id %></td>
+			<td><%= lacre.finalidade.descricao %></td>
+		</tr>
+		<% end %>
+	</tbody>
+</table>
+<br>

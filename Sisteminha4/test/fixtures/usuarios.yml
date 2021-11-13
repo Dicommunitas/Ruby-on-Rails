@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/Fixtures.html
+
+one:
+  chave: MyString
+  nome: MyString
+  senha: MyString
+  privilegio: 
+
+two:
+  chave: MyString
+  nome: MyString
+  senha: MyString
+  privilegio: 

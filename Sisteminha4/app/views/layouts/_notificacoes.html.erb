@@ -1,0 +1,27 @@
+<% if notice.class == Array %>
+
+	<% notice.each do |notificacao| %>
+	<sucesso title="<%= notificacao %>">
+	<% end %>
+
+<% else %>
+
+	<% if notice != nil %>
+		<sucesso title="<%= notice %>">
+	<% end %>
+
+<% end %>
+
+<% if alert.class == Array %>
+
+	<% alert.each do |alerta| %>
+	<erro title="<%= alerta %>">
+	<% end %>
+
+<% else %>
+
+	<% if alert != nil %>
+		<erro title="<%= alert %>">
+	<% end %>
+
+<% end %> 

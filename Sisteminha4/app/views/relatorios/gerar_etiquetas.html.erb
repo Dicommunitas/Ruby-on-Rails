@@ -1,0 +1,127 @@
+<% cont = 0 %>
+<% @amostras.each do |amostra| %>
+<% amostra.lacres.reverse.each do |lacre| %>
+<% if (cont%3 == 0) and (cont != 0) %>
+	<div style="page-break-before: always"></div>
+<% end %>
+<% cont = cont + 1 %>
+<table width="1000px" height="180px" border="3px" bordercolor="#000">
+	<tr>
+		<td><b>
+		<p>
+			Terminal de Paranaguá
+		</p> </b></td>
+
+		<td><b>
+		<p>
+			Amostra / Sample:
+		</b> <%= amostra.id %> </p> </td>
+
+		<td><b>
+		<p>
+			Lacre / Seal:
+		</b> <%= lacre.numero %> </p> </td>
+
+		<td><b>
+		<p>
+			Operação / Operation:
+		</b> <%= amostra.operacao.descricao %> </p> </td>
+
+		<td><b>
+		<p>
+			Finalidade / Object:
+		</b> <%= lacre.finalidade.descricao %> </p> </td>
+
+	</tr>
+
+	<tr>
+		<td><b>
+		<p>
+			Origem / Source:
+		</b> <%= amostra.origem.descricao %> </p> </td>
+
+		<td><b>
+		<p>
+			Data / Date:
+		</b> <%= formatarDataHora(amostra.data) %> - L.T.</p> </td>
+
+		<td><b>
+		<p>
+			Responsável / Load Master:
+		</b> <%= amostra.responsavel.nome %> </p> </td>
+
+		<td><b>
+		<p>
+			Produto / Product:
+		</b> <%= amostra.produto.nome_curto %> </p> </td>
+
+		<td><b>
+		<p>
+			Tipo amostra / Sample type:
+		</b> <%= amostra.tipo_amostra.descricao %> </p> </td>
+	</tr>
+</table>
+
+		<p>
+			<% if amostra.produto.temBenzeno? %>
+			<b><font color="red"> ESTE PRODUTO CONTÉM BENZENO. / This product contains benzene. </font></b>
+			<% else %>
+			|
+			<% end %>
+		</p> 
+<table width="1000px" height="92px" border="3px" bordercolor="#000">
+	<tr>
+		<td><b>
+		<p>
+			Obs:
+		</b> <%= amostra.observacao %> </p> </td>
+	</tr>
+</table>
+
+<table width="1000px" border="0px" >
+
+	<tr>
+		<td><b>
+		<p>
+			Terminal:
+			<br/>
+			<br/>
+			<br/>
+			<br/>
+			_______________________________
+			
+		</b> </p> </td>
+
+		<td><b>
+		<p>
+			Navio / Vessel:
+			<br/>
+			<br/>
+			<br/>
+			<br/>
+			_______________________________
+			
+		</b> </p> </td>
+
+		<td><b>
+		<p>
+			Inspetora / Surveyor:
+			<br/>
+			<br/>
+			<br/>
+			<br/>
+			_______________________________
+			
+		</b> </p> </td>
+	</tr>
+</table>
+
+
+
+<table width="1000px" height="20px" border="0px" >
+	<tr>
+		<td> ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ </td>
+	</tr>
+</table>
+<%end%>
+<%end%> 

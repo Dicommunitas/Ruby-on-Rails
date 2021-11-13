@@ -1,0 +1,2 @@
+module ComposicaoDeVagaosHelper
+end

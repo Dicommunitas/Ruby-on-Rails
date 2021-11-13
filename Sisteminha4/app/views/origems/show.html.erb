@@ -1,0 +1,12 @@
+<%= render 'origems/menu' %>
+<%= render 'layouts/final_menu' %> 
+<%= render 'layouts/notificacoes' %>
+
+<p>
+  <b>Descrição:</b>
+  <%= @origem.descricao %>
+</p>
+
+
+<%= link_to 'Editar', edit_origem_path(@origem) %> |
+<%= link_to 'Deletar', @origem, confirm: 'Você tem certeza?', method: :delete %>

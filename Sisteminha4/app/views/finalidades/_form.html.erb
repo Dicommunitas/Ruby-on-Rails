@@ -1,0 +1,21 @@
+<%= form_for(@finalidade) do |f| %>
+  <% if @finalidade.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@finalidade.errors.count, "erro proíbe") %> esta finalidade de ser salva:</h2>
+
+      <ul>
+      <% @finalidade.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :descricao %><br />
+    <%= f.text_field :descricao %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

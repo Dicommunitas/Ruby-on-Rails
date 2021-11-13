@@ -1,0 +1,11 @@
+<%= render 'finalidades/menu' %>
+<%= render 'layouts/final_menu' %> 
+<%= render 'layouts/notificacoes' %>
+
+<p>
+  <b>Descrição:</b>
+  <%= @finalidade.descricao %>
+</p>
+
+<%= link_to 'Editar', edit_finalidade_path(@finalidade) %> 
+<%= link_to 'Deletar', @finalidade, confirm: 'Você tem certeza?', method: :delete %>
