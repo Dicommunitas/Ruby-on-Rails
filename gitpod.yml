@@ -1,0 +1,80 @@
+---
+#image:
+#  file: .gitpod.dockerfile
+
+tasks:
+# comando para instalar as dependências:
+
+# Instalando o Java:
+# sudo apt update
+# sudo apt install default-jre
+# java -version 
+# deve retornar:
+# openjdk version "11.0.15" 2022-04-19
+
+# Instalando o Docker e Docker Compose:
+# sudo apt update
+# sudo apt install apt-transport-https ca-certificates curl software-properties-common
+# curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+# sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu focal stable"
+# sudo apt update
+# sudo apt install docker-ce
+# sudo chmod 666 /var/run/docker.sock
+# sudo usermod -aG docker ${USER}
+# sudo curl -L "https://github.com/docker/compose/releases/download/1.28.5/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+# sudo chmod +x /usr/local/bin/docker-compose
+
+# Instalando o jHipster (não obrigatório para rodar o projeto, apenas necessário para criar alterações usando o jHipster):
+# sudo apt update
+# curl https://raw.githubusercontent.com/creationix/nvm/master/install.sh | bash
+# source ~/.profile
+- init: nvm install v16.14.2 && nvm use v16.14.2 && npm -v && npm install -g npm@8.6.0 && npm -v && npm install -g generator-jhipster
+
+
+#- name: Passing environment variable
+#  env:
+#    _JAVA_OPTIONS: "-Xmx512m -Xms256m"
+#    SPRING_PROFILES_ACTIVE: "dev"
+
+#  - MANAGEMENT_METRICS_EXPORT_PROMETHEUS_ENABLED=true
+#  - EUREKA_CLIENT_SERVICE_URL_DEFAULTZONE=http://admin:$${jhipster.registry.password}@jhipster-registry:8761/eureka
+#  - SPRING_CLOUD_CONFIG_URI=http://admin:$${jhipster.registry.password}@jhipster-registry:8761/config
+#  - SPRING_DATASOURCE_URL=jdbc:mysql://controleoperacional-mysql:3306/controleoperacional?useUnicode=true&characterEncoding=utf8&useSSL=false&useLegacyDatetimeCode=false&serverTimezone=UTC&createDatabaseIfNotExist=true
+#  - SPRING_LIQUIBASE_URL=jdbc:mysql://controleoperacional-mysql:3306/controleoperacional?useUnicode=true&characterEncoding=utf8&useSSL=false&useLegacyDatetimeCode=false&serverTimezone=UTC&createDatabaseIfNotExist=true
+#  - JHIPSTER_SLEEP=30 # gives time for other services to boot before the application
+
+
+# comando para rodar em modo produção via docker
+#- command: docker system prune -af && cd controleOperacional/ && ./mvnw -Pprod package jib:dockerBuild && docker-compose -f src/main/docker/app.yml up -d && exit
+#- command: docker system prune -af && cd teste/ && ./mvnw -Pprod package jib:dockerBuild && docker-compose -f src/main/docker/app.yml up
+
+# comando para rodar em modo dev
+#- command: cd controleOperacional/ && docker-compose -f src/main/docker/mysql.yml up -d && ./mvnw
+- command: sleep 18 && cd teste/ && docker-compose -f src/main/docker/mysql.yml up -d && ./mvnw
+#- command: docker system prune -af && cd controleOperacional/ && ./mvnw -Pdev package jib:dockerBuild && docker-compose -f src/main/docker/app.yml up
+#Working with Angular/React
+#Running Webpack
+#This step is required to see changes in your TypeScript code and have live reloading of your client-side code.
+#Running Webpack is the default task in the package.json file, so it is enough to run:
+#- command: npm start
+# comando para rodar/gerar o DB
+#- command: cd controleOperacional/ && docker-compose -f src/main/docker/mysql.yml up -d
+# comando para limpar CheckSums do liquibase
+#- command: ./mvnw liquibase:clearCheckSums
+# comando para gerar um novo “change log” para o liquibase
+#Modify your JPA entity (add a field, a relationship, etc.)
+#Compile your application (this works on the compiled Java code, so don’t forget to compile!)
+#Run ./mvnw liquibase:diff (or ./mvnw compile liquibase:diff to compile before)
+#- command: ./mvnw compile liquibase:diff
+# exposed ports
+ports:
+- port: 8080
+  onOpen: open-preview
+
+vscode:
+  extensions:
+    - redhat.java
+    - vscjava.vscode-java-debug
+    - vscjava.vscode-java-test
+#    - pivotal.vscode-spring-boot
+    - mechatroner.rainbow-csv
