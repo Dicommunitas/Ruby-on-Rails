@@ -34,12 +34,12 @@ class AmostrasNavio
     amostras = []
     if tanques == []
       amostra =  criarAmostraNavio
-      amostra.observacao = "Nome do navio / Vessel: #{nome_navio}. Viagem / Voyage: #{viagem}. Berço / Berth: #{berco}. Tanque / Tank: #{tanques}. Obs.: #{observacao}"
+      amostra.observacao = "Tanque / Tank: #{tanques}. Nome do navio / Vessel: #{nome_navio}. Viagem / Voyage: #{viagem}. Berço / Berth: #{berco}. Obs.: #{observacao}"
     amostras << amostra
     else
       tanques.each do |tq|
         amostra = criarAmostraNavio
-        amostra.observacao = "Nome do navio / Vessel: #{nome_navio}. Viagem / Voyage: #{viagem}. Berço / Berth: #{berco}. Tanque / Tank: #{tq}. Obs.: #{observacao}"
+        amostra.observacao = "Tanque / Tank: #{tq}. Nome do navio / Vessel: #{nome_navio}. Viagem / Voyage: #{viagem}. Berço / Berth: #{berco}. Obs.: #{observacao}"
         amostras << amostra
       end
     end
@@ -71,7 +71,7 @@ class AmostrasNavio
         errors.add :amostras, ": #{msg}"
       end
     end
-    if ![1,2,10].include?(operacao.to_i)
+    if ![1,2,10,11].include?(operacao.to_i)
       errors.add :operacao, ": Operação inválida para este tipo de amostra"
     end
 

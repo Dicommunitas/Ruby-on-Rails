@@ -5,11 +5,12 @@
 	<div style="page-break-before: always"></div>
 <% end %>
 <% cont = cont + 1 %>
-<table width="1000px" height="180px" border="3px" bordercolor="#000">
+<table width="1000px" height="150px" border="1px" bordercolor="#000">
 	<tr>
 		<td><b>
 		<p>
-			Terminal de Paranaguá
+                       <img width="100px" src="/logo.png" > <br>
+			<font size="2">Terminal de Paranaguá</font>
 		</p> </b></td>
 
 		<td><b>
@@ -62,13 +63,34 @@
 	</tr>
 </table>
 
-		<p>
+
+
+<table width="1000px" height="92px" border="0px" bordercolor="#000">
+	<tr>
+		<td>
+		<b><p><font color="red" size="2"> 
 			<% if amostra.produto.temBenzeno? %>
-			<b><font color="red"> ESTE PRODUTO CONTÉM BENZENO. / This product contains benzene. </font></b>
+			ESTE PRODUTO CONTÉM BENZENO. / This product contains benzene. 
 			<% else %>
-			|
 			<% end %>
-		</p> 
+			Composição química: hidrocarbonetos com cadeias carbônicas de C4 a C12 e faixa de ebulição de -20 a 230ºC.
+                        Líquidos e vapores extremamente inflamáveis.
+                        Pode provocar câncer. 
+                        Mantenha afastado de calor, faísca, chama aberta, superfícies quentes.
+                        Telefone para emergências: 0800 728 9001 ou 8800 </font></p> 
+
+	      </b>  
+              </td>
+              <td>
+	      <b>
+                       <img src="/perigo.png">
+
+            
+	      </b>  
+              </td>
+	</tr>
+</table>
+
 <table width="1000px" height="92px" border="3px" bordercolor="#000">
 	<tr>
 		<td><b>
@@ -118,10 +140,18 @@
 
 
 
-<table width="1000px" height="20px" border="0px" >
-	<tr>
-		<td> ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ </td>
-	</tr>
-</table>
 <%end%>
 <%end%> 
+<script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const highlightTextBetween = (startText, endText) => {
+                const elements = document.querySelectorAll('p');
+                elements.forEach(p => {
+                    const regex = new RegExp(`${startText}(.*?)${endText}`, 'g');
+                    p.innerHTML = p.innerHTML.replace(regex, `${startText}<span style="background-color: #FFFF00">$1</span>${endText}`);
+                });
+            };
+
+            highlightTextBetween('Tanque / Tank:', 'Nome do navio / Vessel:');
+        });
+</script>

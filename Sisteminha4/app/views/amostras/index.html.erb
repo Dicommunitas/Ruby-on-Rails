@@ -14,8 +14,13 @@ até
 
 
 
-<%=  form_tag('/relatorios/gerar_relatorio_de_amostras') do %>
+<%=  form_tag('/relatorios/gerar_relatorio_de_amostras', target: "_blank" ) do %>
 <br>
+
+<div style="text-align: right;">
+	<input class='actions' value='Gerar etiquetas' type='submit' />
+</div>
+
 <table cellpadding="0" cellspacing="0" border="0" class="display dataTable" >
 	<thead>
 		<tr>

@@ -33,14 +33,16 @@ class RelatoriosController < ApplicationController
 
         #html = render_to_string(:layout => 'relatorios')
         if params[:relatorio] == 'Gerar etiquetas'
-          html = render_to_string(:template => "relatorios/gerar_etiquetas")
+          #html = render_to_string(:template => "relatorios/gerar_etiquetas")
+          render "relatorios/gerar_etiquetas"
         elsif params[:relatorio] == 'Gerar recibo de amostras'
-          html = render_to_string(:template => "relatorios/gerar_recibo_de_amostras")
+          #html = render_to_string(:template => "relatorios/gerar_recibo_de_amostras")
+          render "relatorios/gerar_recibo_de_amostras"
         end
 
-        kit = PDFKit.new(html, :page_size => "A4")
-        send_data(kit.to_pdf, :filename => "etiquetas.pdf", :type => 'application/pdf')
-        return
+        #kit = PDFKit.new(html, :page_size => "A4")
+        #send_data(kit.to_pdf, :filename => "etiquetas.pdf", :type => 'application/pdf')
+        #return
       }
     end
 
