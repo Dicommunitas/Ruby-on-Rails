@@ -4,9 +4,16 @@
 
 tasks:
 # comando para instalar as dependências:
-
 # Instalando o ruby-1.9.2-p318:
-- sudo echo "deb http://security.ubuntu.com/ubuntu bionic-security main" >> /etc/apt/sources.list && apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 3B4FE6ACC0B21F32 && apt update && apt-cache policy libssl1.0-dev && apt-get install libssl1.0-dev 
+    - name: ruby-1.9.2-p318
+      # change working directory as per configured in `checkoutLocation`
+      # which is configured above as `/workspaces/backend`
+      before: |
+          cd Sisteminha4
+      init: |
+          sudo echo "deb http://security.ubuntu.com/ubuntu bionic-security main" >> /etc/apt/sources.list && apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 3B4FE6ACC0B21F32 && apt update && apt-cache policy libssl1.0-dev && apt-get install libssl1.0-dev 
+      command: |
+          ruby -v
 
 # Instalando o Java:
 # sudo apt update
@@ -32,7 +39,7 @@ tasks:
 # curl https://raw.githubusercontent.com/creationix/nvm/master/install.sh | bash
 # source ~/.profile
 #- init: nvm install v16.14.2 && nvm use v16.14.2 && npm -v && npm install -g npm@8.6.0 && npm -v && npm install -g generator-jhipster
-- init: apt install git curl libssl-dev libreadline-dev zlib1g-dev autoconf bison build-essential libyaml-dev libreadline-dev libncurses5-dev libffi-dev libgdbm-dev
+#- init: apt install git curl libssl-dev libreadline-dev zlib1g-dev autoconf bison build-essential libyaml-dev libreadline-dev libncurses5-dev libffi-dev libgdbm-dev
 
 
 #- name: Passing environment variable
