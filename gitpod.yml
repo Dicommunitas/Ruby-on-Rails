@@ -28,7 +28,7 @@ tasks:
 # sudo apt update
 # curl https://raw.githubusercontent.com/creationix/nvm/master/install.sh | bash
 # source ~/.profile
-- init: nvm install v16.14.2 && nvm use v16.14.2 && npm -v && npm install -g npm@8.6.0 && npm -v && npm install -g generator-jhipster
+#- init: nvm install v16.14.2 && nvm use v16.14.2 && npm -v && npm install -g npm@8.6.0 && npm -v && npm install -g generator-jhipster
 
 
 #- name: Passing environment variable
@@ -50,7 +50,10 @@ tasks:
 
 # comando para rodar em modo dev
 #- command: cd controleOperacional/ && docker-compose -f src/main/docker/mysql.yml up -d && ./mvnw
-- command: sleep 18 && cd teste/ && docker-compose -f src/main/docker/mysql.yml up -d && ./mvnw
+#- command: sleep 18 && cd teste/ && docker-compose -f src/main/docker/mysql.yml up -d && ./mvnw
+
+
+
 #- command: docker system prune -af && cd controleOperacional/ && ./mvnw -Pdev package jib:dockerBuild && docker-compose -f src/main/docker/app.yml up
 #Working with Angular/React
 #Running Webpack
@@ -73,8 +76,8 @@ ports:
 
 vscode:
   extensions:
-    - redhat.java
-    - vscjava.vscode-java-debug
-    - vscjava.vscode-java-test
+#    - redhat.java
+#    - vscjava.vscode-java-debug
+#    - vscjava.vscode-java-test
 #    - pivotal.vscode-spring-boot
     - mechatroner.rainbow-csv
