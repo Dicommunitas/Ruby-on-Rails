@@ -17,11 +17,21 @@ tasks:
 # Instalando o ruby-1.9.2-p318:
     - name: ruby-1.9.2-p318
       before: |
-          sleep 18 && cd Sisteminha4
+          sleep 3 && cd Sisteminha4
       init: |
           sudo apt update && sudo apt-cache policy libssl1.0-dev && sudo apt-get install libssl1.0-dev -y
       command: |
-          sleep 10 && rvm install "ruby-1.9.2-p318"  && ruby -v
+          sleep 5 && rvm install "ruby-1.9.2-p318"  && ruby -v
+
+# comando para instalar as dependências:
+# Instalando o rails:
+    - name: rails
+      before: |
+          sleep 30 && cd Sisteminha4
+      init: |
+          gem install bundler -v '1.6.2'
+      command: |
+          sleep 18 && bundle install
 
 # Instalando o Java:
 # sudo apt update
