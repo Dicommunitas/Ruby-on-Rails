@@ -11,9 +11,9 @@ tasks:
       before: |
           cd Sisteminha4
       init: |
-          sudo su && echo "deb http://security.ubuntu.com/ubuntu bionic-security main" >> /etc/apt/sources.list && apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 3B4FE6ACC0B21F32 && apt update && apt-cache policy libssl1.0-dev && apt-get install libssl1.0-dev && exit
+          sudo su 
       command: |
-          rvm install "ruby-1.9.2-p318" && ruby -v
+          echo "deb http://security.ubuntu.com/ubuntu bionic-security main" >> /etc/apt/sources.list && apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 3B4FE6ACC0B21F32 && apt update && apt-cache policy libssl1.0-dev && apt-get install libssl1.0-dev && exit && rvm install "ruby-1.9.2-p318" && ruby -v
 
 # Instalando o Java:
 # sudo apt update
