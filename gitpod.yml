@@ -5,6 +5,9 @@
 tasks:
 # comando para instalar as dependências:
 
+# Instalando o ruby-1.9.2-p318:
+- sudo echo "deb http://security.ubuntu.com/ubuntu bionic-security main" >> /etc/apt/sources.list && apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 3B4FE6ACC0B21F32 && apt update && apt-cache policy libssl1.0-dev && apt-get install libssl1.0-dev 
+
 # Instalando o Java:
 # sudo apt update
 # sudo apt install default-jre
@@ -30,11 +33,6 @@ tasks:
 # source ~/.profile
 #- init: nvm install v16.14.2 && nvm use v16.14.2 && npm -v && npm install -g npm@8.6.0 && npm -v && npm install -g generator-jhipster
 - init: apt install git curl libssl-dev libreadline-dev zlib1g-dev autoconf bison build-essential libyaml-dev libreadline-dev libncurses5-dev libffi-dev libgdbm-dev
-- command: sleep 18 && curl -fsSL https://github.com/rbenv/rbenv-installer/raw/HEAD/bin/rbenv-installer | bash
-- command: sleep 18 && echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.bashrc
-- command: sleep 18 && echo 'eval "$(rbenv init -)"' >> ~/.bashrc
-- command: sleep 18 && source ~/.bashrc
-- command: sleep 18 && type rbenv
 
 
 #- name: Passing environment variable
