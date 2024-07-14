@@ -27,7 +27,7 @@ tasks:
 # Instalando o rails:
     - name: rails
       before: |
-          sleep 30 && cd Sisteminha4
+          sleep 240 && cd Sisteminha4
       init: |
           gem install bundler -v '1.6.2'
       command: |
