@@ -1,6 +1,6 @@
 #FROM gitpod/workspace-full
 #FROM gitpod/workspace-full:latest
-FROM ruby:1.9.3
+FROM ubuntu:14.04.5
 
 #Current default time zone: 'America/Sao_Paulo'
 #sudo apt update
@@ -56,4 +56,4 @@ FROM ruby:1.9.3
 #ENV ROCKET_PORT=8000
 
 # Give back control
-USER root
+#USER root

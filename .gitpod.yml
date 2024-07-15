@@ -1,6 +1,6 @@
 ---
-#image:
-#  file: .gitpod.dockerfile
+image:
+  file: .gitpod.dockerfile
 
 tasks:
 # comando para instalar as dependências:
