@@ -16,7 +16,7 @@ class Produto < ActiveRecord::Base
   end
   
   def temBenzeno?
-    if [1,2,3,34,35,36,41,42,43,51].include?(id)
+    if [1,2,3,34,35,36,41,42,43,51,55].include?(id)
       true
     else
       false
