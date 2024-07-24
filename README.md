@@ -31,7 +31,7 @@ Este projeto é um sistema web desenvolvido para auxiliar no controle de amostra
 * Usuario: Representa os usuários do sistema.
 * Vistoria: Registra as vistorias realizadas nos vagões.
 
-!(https://github.com/Dicommunitas/Ruby-on-Rails/blob/main/Sisteminha4/public/Projeto%20empresa%20(diagrama%20de%20classe).svg)
+![diagrama de classe)](https://github.com/Dicommunitas/Ruby-on-Rails/blob/main/Sisteminha4/public/Projeto%20empresa%20(diagrama%20de%20classe).svg)
 
 ## 🚀 Começando
 
