@@ -33,7 +33,7 @@ Este projeto é um sistema web desenvolvido para auxiliar no controle de amostra
 
 ## 🚀 Começando
 
-## Usando Gitpod
+### Usando Gitpod
 O Gitpod é um ambiente de desenvolvimento online que permite iniciar e trabalhar em projetos diretamente no navegador. Ele utiliza o arquivo .gitpod.yml para configurar e iniciar automaticamente o ambiente de desenvolvimento.
 
 Para usar o Gitpod com este projeto:
@@ -49,9 +49,9 @@ Instalar o Bundler e as dependências do projeto.
 Configurar e iniciar o servidor Rails.
 
 ### 🔧 Instalação Manual
-Para instalar e rodar o projeto localmente, siga os passos descritos no aquivo ´´´.gitpod.yml´´´
+Para instalar e rodar o projeto localmente, siga os passos descritos no aquivo *.gitpod.yml*
 
-### Uso
+## Uso
 Após a instalação, acesse http://localhost:8080 no navegador para utilizar o sistema.
 
 ### Login
