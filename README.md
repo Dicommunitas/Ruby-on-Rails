@@ -68,4 +68,4 @@ Terminal de Paranaguá.
 Copyright (C) 2012 Diego Lima da Costa
 
 Este programa é software livre; você pode redistribuí-lo e/ou modificá-lo sob os termos da Licença Pública Geral GNU, conforme publicada pela Free Software Foundation; tanto a versão 2 da Licença como (a seu critério) qualquer versão mais atual.
-Para ver uma versão traduzida, não oficial, desta licença clique [licença]([https://github.com/usuario/projeto/licenca](http://www.neoscopio.com/licenca_GPL_pt.txt)) para detalhes.
+Para ver uma versão traduzida, não oficial, desta licença clique em [licença](http://www.neoscopio.com/licenca_GPL_pt.txt) para detalhes.
