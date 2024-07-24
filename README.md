@@ -54,7 +54,7 @@ Configurar e iniciar o servidor Rails.
 Para instalar e rodar o projeto localmente, siga os passos descritos no aquivo *.gitpod.yml*
 
 ## Uso
-Após a instalação, acesse http://localhost:8080 no navegador para utilizar o sistema.
+Após a instalação, acesse *http://localhost:8080* no navegador para utilizar o sistema.
 
 ### Login
 Para usar o sistema, é necessário se logar como administrador. Use as seguintes credenciais:
